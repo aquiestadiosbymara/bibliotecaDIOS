@@ -1,8 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background: black;
-    color: white;
+    background: #f5f1e8;
+    color: #1b1b1b;
     font-family: Arial, sans-serif;
-    text-align: center;
 }
 
 .portada {
@@ -11,34 +20,110 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    padding: 60px 25px;
+    position: relative;
+    overflow: hidden;
 }
+
+/* Detalle decorativo */
+
+.portada::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border: 1px solid #d7cbb7;
+    border-radius: 50%;
+    top: -180px;
+    right: -150px;
+}
+
+.portada::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 1px solid #d7cbb7;
+    border-radius: 50%;
+    bottom: -170px;
+    left: -130px;
+}
+
+/* Nombre pequeño */
 
 .marca {
-    color: gold;
-    font-size: 14px;
+    font-size: 11px;
     letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #8c7350;
+    margin-bottom: 35px;
 }
+
+/* Título */
 
 h1 {
-    font-size: 50px;
+    font-family: Georgia, serif;
+    font-size: clamp(48px, 8vw, 92px);
     font-weight: normal;
+    line-height: 0.98;
+    letter-spacing: -2px;
+    max-width: 900px;
+    margin-bottom: 35px;
 }
+
+/* Texto */
 
 .descripcion {
-    max-width: 600px;
-    font-size: 18px;
-    line-height: 1.6;
+    max-width: 560px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #68645d;
+    margin-bottom: 45px;
 }
 
+/* Botón */
+
 button {
-    background: transparent;
-    color: white;
-    border: 1px solid gold;
-    padding: 15px 25px;
+    border: none;
+    background: #1b1b1b;
+    color: #f5f1e8;
+    padding: 18px 30px;
+    font-size: 11px;
+    letter-spacing: 2.5px;
     cursor: pointer;
+    transition: all 0.35s ease;
+}
+
+button span {
+    margin-left: 15px;
+    color: #d2b47a;
 }
 
 button:hover {
-    background: gold;
-    color: black;
+    transform: translateY(-3px);
+    padding-left: 36px;
+    padding-right: 36px;
+}
+
+button:hover span {
+    margin-left: 20px;
+}
+
+/* Móvil */
+
+@media (max-width: 600px) {
+
+    .portada {
+        padding: 40px 22px;
+    }
+
+    h1 {
+        font-size: 50px;
+    }
+
+    .descripcion {
+        font-size: 16px;
+    }
+
 }
