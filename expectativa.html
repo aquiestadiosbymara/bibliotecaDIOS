@@ -1,1 +1,902 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Código de la Expectativa | Mara Triguero</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================
+           CÓDIGO DE LA EXPECTATIVA
+        ========================= */
+
+        .expectativa {
+            min-height: 100vh;
+            padding: 60px 20px;
+            background: #f4efe6;
+        }
+
+        .experiencia {
+            max-width: 760px;
+            margin: auto;
+        }
+
+        .portada-expectativa {
+            text-align: center;
+        }
+
+        .portada-expectativa .marca {
+            margin: 0 0 20px 0;
+        }
+
+        .portada-expectativa h1 {
+            font-size: 58px;
+            margin-bottom: 25px;
+        }
+
+        .frase-portada {
+            max-width: 560px;
+            margin: auto;
+            color: #666666;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* VIDEO */
+
+        .video {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            margin: 45px auto;
+            background: #222222;
+            overflow: hidden;
+        }
+
+        .video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* BOTÓN */
+
+        .boton {
+            display: inline-block;
+            padding: 17px 30px;
+            background: #222222;
+            color: white;
+            border: none;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        .boton span {
+            margin-left: 12px;
+            color: #d0ad70;
+        }
+
+        /* CONTENIDO */
+
+        #contenido {
+            display: none;
+        }
+
+        /* PROGRESO */
+
+        .progreso {
+            margin-bottom: 55px;
+        }
+
+        .progreso-superior {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #8b7355;
+            margin-bottom: 12px;
+        }
+
+        .linea {
+            height: 3px;
+            background: #ded5c8;
+        }
+
+        .barra {
+            height: 100%;
+            width: 25%;
+            background: #8b7355;
+            transition: width 0.5s ease;
+        }
+
+        /* SECCIONES */
+
+        .seccion {
+            display: none;
+            animation: aparecer 0.5s ease;
+        }
+
+        .seccion.activa {
+            display: block;
+        }
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .numero {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #9a805c;
+            margin-bottom: 20px;
+        }
+
+        .seccion h2 {
+            font-family: Georgia, serif;
+            font-size: 44px;
+            font-weight: normal;
+            line-height: 1.15;
+            margin-bottom: 35px;
+        }
+
+        .texto {
+            color: #444444;
+            font-size: 17px;
+            line-height: 1.85;
+        }
+
+        .texto p {
+            margin-bottom: 28px;
+        }
+
+        /* FRASES IMPORTANTES */
+
+        .frase-destacada {
+            margin: 45px 0;
+            padding: 35px;
+            background: #ffffff;
+            border-left: 3px solid #d0ad70;
+            font-family: Georgia, serif;
+            font-size: 24px;
+            line-height: 1.55;
+        }
+
+        /* PAUSA */
+
+        .pausa {
+            margin: 50px 0;
+            padding: 40px 25px;
+            text-align: center;
+            background: #ebe3d7;
+        }
+
+        .pausa-grande {
+            font-family: Georgia, serif;
+            font-size: 28px;
+            line-height: 1.5;
+        }
+
+        /* INTERACTIVO */
+
+        .interactivo {
+            margin: 50px 0;
+            padding: 35px;
+            background: #ffffff;
+        }
+
+        .interactivo-titulo {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #9a805c;
+            margin-bottom: 25px;
+        }
+
+        .campo {
+            width: 100%;
+            min-height: 110px;
+            box-sizing: border-box;
+            padding: 18px;
+            border: 1px solid #d8cfc2;
+            background: #ffffff;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            resize: vertical;
+            outline: none;
+        }
+
+        .campo:focus {
+            border-color: #9a805c;
+        }
+
+        /* LISTA RECUERDA */
+
+        .recuerda {
+            margin: 45px 0;
+            padding: 40px;
+            background: #222222;
+            color: white;
+        }
+
+        .recuerda-titulo {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #d0ad70;
+            margin-bottom: 25px;
+        }
+
+        .recuerda p {
+            font-family: Georgia, serif;
+            font-size: 22px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* FINAL */
+
+        .final {
+            display: none;
+            text-align: center;
+            animation: aparecer 0.7s ease;
+        }
+
+        .final.activo {
+            display: block;
+        }
+
+        .final .marca {
+            margin-bottom: 25px;
+        }
+
+        .final h2 {
+            font-family: Georgia, serif;
+            font-size: 50px;
+            font-weight: normal;
+            line-height: 1.15;
+            margin-bottom: 25px;
+        }
+
+        .final p {
+            max-width: 540px;
+            margin: 0 auto 40px auto;
+            color: #666666;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        /* MÓVIL */
+
+        @media (max-width: 600px) {
+
+            .expectativa {
+                padding: 45px 20px;
+            }
+
+            .portada-expectativa h1 {
+                font-size: 42px;
+            }
+
+            .seccion h2 {
+                font-size: 34px;
+            }
+
+            .frase-destacada {
+                font-size: 20px;
+                padding: 25px;
+            }
+
+            .recuerda {
+                padding: 30px;
+            }
+
+            .recuerda p {
+                font-size: 19px;
+            }
+
+            .final h2 {
+                font-size: 38px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<main class="expectativa">
+
+<div class="experiencia">
+
+
+    <!-- =========================
+         PORTADA
+    ========================= -->
+
+    <section class="portada-expectativa" id="portada">
+
+        <p class="marca">CÓDIGO 02</p>
+
+        <h1>La<br>Expectativa</h1>
+
+        <p class="frase-portada">
+            A veces, el problema no está en lo que deseas,
+            sino en la expectativa que creas alrededor de ese deseo.
+        </p>
+
+
+        <div class="video">
+
+            <iframe
+                src="https://www.youtube.com/embed/AhvLz9Fzc-s"
+                title="Código de la Expectativa"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+
+        <button class="boton" onclick="comenzar()">
+            COMENZAR
+            <span>→</span>
+        </button>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTENIDO
+    ========================= -->
+
+    <section id="contenido">
+
+
+        <div class="progreso">
+
+            <div class="progreso-superior">
+
+                <span id="numero">01 / 04</span>
+
+                <span>EXPECTATIVA</span>
+
+            </div>
+
+            <div class="linea">
+
+                <div class="barra" id="barra"></div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             SECCIÓN 01
+        ========================= -->
+
+        <article class="seccion activa" id="seccion1">
+
+            <p class="numero">PARTE 01</p>
+
+            <div class="texto">
+
+                <p>
+                    Yo siempre he querido una vida extraordinaria.
+                    Durante mucho tiempo tuve muchísimas metas, sueños e ideas
+                    sobre la vida que quería construir. Y también me puse fechas
+                    para conseguirlas.
+                </p>
+
+                <p>
+                    El problema llegó cuando esas cosas no sucedieron en
+                    el tiempo que yo había decidido.
+                </p>
+
+                <p>
+                    Cuando llega la fecha que tú mismo te has puesto y el resultado
+                    no está ahí, puede aparecer la frustración, la desmotivación
+                    e incluso puedes empezar a perder la fe en aquello que querías conseguir.
+                </p>
+
+            </div>
+
+
+            <div class="pausa">
+
+                <p class="pausa-grande">
+                    Y ahí entendí algo:
+                </p>
+
+            </div>
+
+
+            <div class="frase-destacada">
+
+                No tenía que renunciar a mis sueños.
+                Tenía que renunciar a mi necesidad de controlar el resultado.
+
+            </div>
+
+
+            <div class="texto">
+
+                <p>
+                    Porque una cosa es tener una visión de hacia dónde quieres ir
+                    y otra muy diferente es decidir exactamente cuándo, cómo,
+                    dónde y de qué manera tiene que suceder.
+                </p>
+
+            </div>
+
+
+            <div class="interactivo">
+
+                <p class="interactivo-titulo">
+                    DETENTE UN MOMENTO
+                </p>
+
+                <p class="texto">
+                    ¿Hay algo que deseas y a lo que le has puesto una fecha límite?
+                </p>
+
+                <textarea
+                    class="campo"
+                    placeholder="Escribe aquí..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="zona-boton">
+
+                <button class="boton" onclick="siguiente(2)">
+                    CONTINUAR
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =========================
+             SECCIÓN 02
+        ========================= -->
+
+        <article class="seccion" id="seccion2">
+
+            <p class="numero">PARTE 02</p>
+
+            <div class="texto">
+
+                <p>
+                    Puedes tener metas, saber qué quieres conseguir, puedes saber
+                    qué tipo de vida quieres construir, puedes trabajar cada día por ello.
+                </p>
+
+                <p>
+                    Pero no necesitas ponerle a Dios una fecha límite.
+                </p>
+
+            </div>
+
+
+            <div class="frase-destacada">
+
+                Porque quizá tú piensas que algo puede suceder en tres meses,
+                pero Dios sabe que todavía necesitas aprender, crecer, madurar
+                o vivir determinadas experiencias antes de estar preparado
+                para aquello que estás pidiendo.
+
+            </div>
+
+
+            <div class="texto">
+
+                <p>
+                    Y si llega el tercer mes y no ha sucedido, puedes pensar que has fracasado.
+                    Puedes frustrarte, puedes desmotivarte, puedes empezar a dudar.
+                </p>
+
+                <p>
+                    Cuando quizá simplemente no era el momento.
+                </p>
+
+            </div>
+
+
+            <div class="interactivo">
+
+                <p class="interactivo-titulo">
+                    🤍 HOY PREGÚNTATE
+                </p>
+
+                <p class="texto">
+                    ¿En qué área de mi vida estoy intentando controlar el cuándo,
+                    el cómo o el resultado?
+                </p>
+
+                <textarea
+                    class="campo"
+                    placeholder="Escribe tu respuesta..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="zona-boton">
+
+                <button class="boton" onclick="siguiente(3)">
+                    CONTINUAR
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =========================
+             SECCIÓN 03
+        ========================= -->
+
+        <article class="seccion" id="seccion3">
+
+            <p class="numero">PARTE 03</p>
+
+            <div class="texto">
+
+                <p>
+                    Por eso, para mí, la verdadera práctica está en aprender
+                    a tener visión sin expectativa.
+                </p>
+
+                <p>
+                    Ponte tus metas.
+                </p>
+
+                <p>
+                    Pregúntate:
+                </p>
+
+            </div>
+
+
+            <div class="frase-destacada">
+
+                ¿Qué quiero en mi vida?<br>
+                ¿Hacia dónde quiero ir?<br>
+                ¿Qué quiero construir?<br>
+                ¿Qué quiero conseguir?
+
+            </div>
+
+
+            <div class="texto">
+
+                <p>
+                    Tenlo claro.
+                </p>
+
+                <p>
+                    Pero después suelta el control sobre el cuándo, el cómo,
+                    el dónde y la forma exacta en la que va a suceder.
+                </p>
+
+                <p>
+                    Sigue actuando.
+                </p>
+
+                <p>
+                    Sigue trabajando.
+                </p>
+
+                <p>
+                    Sigue creciendo.
+                </p>
+
+                <p>
+                    Sigue teniendo pasión.
+                </p>
+
+                <p>
+                    Pero hazlo desde la fe y la convicción, no desde la necesidad
+                    de que las cosas ocurran exactamente como tú las has imaginado.
+                </p>
+
+            </div>
+
+
+            <div class="pausa">
+
+                <p class="pausa-grande">
+                    No renuncies a la pasión.<br>
+                    Renuncia al control.
+                </p>
+
+            </div>
+
+
+            <div class="interactivo">
+
+                <p class="interactivo-titulo">
+                    TU VISIÓN
+                </p>
+
+                <p class="texto">
+                    Escribe algo que quieres construir en tu vida.
+                </p>
+
+                <textarea
+                    class="campo"
+                    placeholder="¿Qué quiero construir?"
+                ></textarea>
+
+            </div>
+
+
+            <div class="zona-boton">
+
+                <button class="boton" onclick="siguiente(4)">
+                    CONTINUAR
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =========================
+             SECCIÓN 04
+        ========================= -->
+
+        <article class="seccion" id="seccion4">
+
+            <p class="numero">PARTE 04</p>
+
+            <div class="texto">
+
+                <p>
+                    Y aquí es donde entra Dios, aprende a confiar en que Dios
+                    está guiando tu camino.
+                </p>
+
+                <p>
+                    Aprende a caminar junto a Él, y sobre todo, aprende a caminar
+                    junto a Jesús.
+                </p>
+
+                <p>
+                    Porque cuando dejas de intentar controlar cada resultado,
+                    empiezas a desarrollar algo mucho más importante:
+                </p>
+
+            </div>
+
+
+            <div class="pausa">
+
+                <p class="pausa-grande">
+                    fe.
+                </p>
+
+            </div>
+
+
+            <div class="texto">
+
+                <p>
+                    Fe para seguir caminando aunque todavía no veas el resultado.
+                    Fe para seguir actuando aunque no sepas cuándo llegará.
+                    Fe para aceptar que quizá Dios tenga un camino diferente
+                    al que tú habías imaginado.
+                </p>
+
+                <p>
+                    Y quizá ese sea precisamente el punto: no necesitas saber
+                    cómo va a suceder.
+                </p>
+
+            </div>
+
+
+            <div class="frase-destacada">
+
+                Solo necesitas seguir caminando.
+
+            </div>
+
+
+            <div class="recuerda">
+
+                <p class="recuerda-titulo">
+                    RECUERDA
+                </p>
+
+                <p>
+                    Metas, sí.<br>
+                    Pasión, sí.<br>
+                    Acción, sí.<br>
+                    Convicción, sí.<br>
+                    Fe, sí.
+                </p>
+
+            </div>
+
+
+            <div class="texto">
+
+                <p>
+                    Expectativa sobre el cuándo, el cómo y el resultado exacto: no.
+                </p>
+
+            </div>
+
+
+            <div class="frase-destacada">
+
+                Suelta el control.<br>
+                Entrégaselo a Dios.
+
+            </div>
+
+
+            <div class="interactivo">
+
+                <p class="interactivo-titulo">
+                    PARA LLEVARTE DE ESTA EXPERIENCIA
+                </p>
+
+                <p class="texto">
+                    ¿Qué necesitas soltar hoy?
+                </p>
+
+                <textarea
+                    class="campo"
+                    placeholder="Escribe aquí..."
+                ></textarea>
+
+            </div>
+
+
+            <div style="text-align:right; margin-top:30px;">
+
+                <button class="boton" onclick="finalizar()">
+                    TERMINAR
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =========================
+             FINAL
+        ========================= -->
+
+        <section class="final" id="final">
+
+            <p class="marca">
+                CÓDIGO 02 · COMPLETADO
+            </p>
+
+            <h2>
+                Suelta el control.
+            </h2>
+
+            <p>
+                Entrégaselo a Dios.
+            </p>
+
+            <a
+                href="biblioteca.html"
+                class="boton">
+                VOLVER A LA BIBLIOTECA
+                <span>→</span>
+            </a>
+
+        </section>
+
+
+    </section>
+
+</div>
+
+</main>
+
+
+
+<script>
+
+    let seccionActual = 1;
+
+
+    function comenzar() {
+
+        document.getElementById("portada").style.display = "none";
+
+        document.getElementById("contenido").style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    function siguiente(numero) {
+
+        document.getElementById("seccion" + seccionActual)
+            .classList.remove("activa");
+
+        seccionActual = numero;
+
+        document.getElementById("seccion" + seccionActual)
+            .classList.add("activa");
+
+
+        document.getElementById("numero").textContent =
+            "0" + seccionActual + " / 04";
+
+
+        document.getElementById("barra").style.width =
+            (seccionActual * 25) + "%";
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    function finalizar() {
+
+        document.getElementById("seccion4")
+            .classList.remove("activa");
+
+        document.querySelector(".progreso")
+            .style.display = "none";
+
+        document.getElementById("final")
+            .classList.add("activo");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+</script>
+
+</body>
+
+</html>
