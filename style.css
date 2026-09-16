@@ -60,3 +60,96 @@ button span {
         font-size: 16px;
     }
 }
+.biblioteca {
+    min-height: 100vh;
+    padding: 70px 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.biblioteca .marca {
+    margin: 0 0 25px 0;
+}
+
+.biblioteca h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.intro {
+    text-align: center;
+    color: #666666;
+    font-size: 17px;
+    margin-bottom: 70px;
+}
+
+.recursos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.recurso {
+    display: block;
+    min-height: 360px;
+    padding: 40px;
+    background: #ffffff;
+    border: 1px solid #e1d9cd;
+    text-decoration: none;
+    color: #222222;
+    transition: 0.3s;
+}
+
+.recurso:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.numero {
+    font-size: 13px;
+    color: #9a805c;
+    letter-spacing: 2px;
+}
+
+.recurso h2 {
+    font-family: Georgia, serif;
+    font-size: 38px;
+    font-weight: normal;
+    line-height: 1.1;
+    margin: 55px 0 20px 0;
+}
+
+.recurso p {
+    color: #666666;
+    line-height: 1.6;
+}
+
+.abrir {
+    display: block;
+    margin-top: 35px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #8b7355;
+}
+
+.proximo {
+    opacity: 0.75;
+}
+
+.proximamente {
+    margin-top: 20px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #9a805c !important;
+}
+
+@media (max-width: 700px) {
+
+    .recursos {
+        grid-template-columns: 1fr;
+    }
+
+    .recurso h2 {
+        font-size: 32px;
+    }
+}
