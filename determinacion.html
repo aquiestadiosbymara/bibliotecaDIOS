@@ -1000,7 +1000,55 @@ localStorage.setItem("codigo01Completado", "true");
         });
 
     }
+function guardarRespuestas() {
+    const campos = document.querySelectorAll(".campo-respuesta");
 
+    const respuestas = {
+        principio1: campos[0] ? campos[0].value : "",
+        principio2: campos[1] ? campos[1].value : "",
+        principio3: campos[2] ? campos[2].value : "",
+        principio4: campos[3] ? campos[3].value : "",
+        principio5: campos[4] ? campos[4].value : "",
+        opcion3: document.querySelector(".opcion.seleccionada")
+            ? document.querySelector(".opcion.seleccionada").textContent.trim()
+            : ""
+    };
+
+    localStorage.setItem(
+        "codigo01Respuestas",
+        JSON.stringify(respuestas)
+    );
+}
+
+document.querySelectorAll(".campo-respuesta").forEach(function(campo) {
+    campo.addEventListener("input", guardarRespuestas);
+});
+
+cargarRespuestas();
+
+function cargarRespuestas() {
+    const guardadas = JSON.parse(
+        localStorage.getItem("codigo01Respuestas")
+    );
+
+    if (!guardadas) return;
+
+    const campos = document.querySelectorAll(".campo-respuesta");
+
+    if (campos[0]) campos[0].value = guardadas.principio1 || "";
+    if (campos[1]) campos[1].value = guardadas.principio2 || "";
+    if (campos[2]) campos[2].value = guardadas.principio3 || "";
+    if (campos[3]) campos[3].value = guardadas.principio4 || "";
+    if (campos[4]) campos[4].value = guardadas.principio5 || "";
+
+    if (guardadas.opcion3) {
+        document.querySelectorAll(".opcion").forEach(function(opcion) {
+            if (opcion.textContent.trim() === guardadas.opcion3) {
+                opcion.classList.add("seleccionada");
+            }
+        });
+    }
+}
 </script>
 
 </body>
