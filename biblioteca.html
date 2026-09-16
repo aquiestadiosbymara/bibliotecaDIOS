@@ -120,6 +120,104 @@
                 font-size: 9px;
             }
         }
+        /* =========================
+   PREGUNTAS
+   ========================= */
+
+.preguntas {
+    max-width: 850px;
+    margin: 100px auto 20px auto;
+}
+
+.preguntas-titulo {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #9a805c;
+    margin-bottom: 45px;
+}
+
+.pregunta {
+    border-top: 1px solid #d8cbbb;
+}
+
+.pregunta:last-child {
+    border-bottom: 1px solid #d8cbbb;
+}
+
+.pregunta-boton {
+    width: 100%;
+    padding: 25px 5px;
+    background: none;
+    border: none;
+    color: #222222;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    letter-spacing: 0;
+    cursor: pointer;
+}
+
+.pregunta-boton span {
+    color: #9a805c;
+    font-size: 22px;
+    font-weight: normal;
+    margin-left: 20px;
+    transition: transform 0.3s ease;
+}
+
+.pregunta.activa .pregunta-boton span {
+    transform: rotate(45deg);
+}
+
+.respuesta {
+    display: none;
+    padding: 0 45px 30px 5px;
+    color: #666666;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.pregunta.activa .respuesta {
+    display: block;
+}
+
+.boton-pregunta {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 14px 24px;
+    background: #222222;
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.boton-pregunta span {
+    margin-left: 10px;
+    color: #d0ad70;
+}
+
+@media (max-width: 700px) {
+
+    .preguntas {
+        margin-top: 80px;
+    }
+
+    .pregunta-boton {
+        font-size: 15px;
+        padding: 22px 0;
+    }
+
+    .respuesta {
+        padding-right: 10px;
+        font-size: 15px;
+    }
+
+}
     </style>
 </head>
 
@@ -215,7 +313,157 @@
             </div>
 
         </section>
+<section class="preguntas">
 
+    <p class="preguntas-titulo">QUIZÁ TE ESTÉS PREGUNTANDO...</p>
+
+
+    <div class="pregunta">
+
+        <button class="pregunta-boton" onclick="abrirPregunta(this)">
+            Me siento perdida/o y no sé qué hacer con mi vida. ¿Cómo encuentro mi propósito?
+            <span>+</span>
+        </button>
+
+        <div class="respuesta">
+
+            <p>
+                La clave no está en encontrar tu propósito, sino en encontrarte a ti misma/o.
+            </p>
+
+            <p>
+                Empieza por escudriñar lo que hay en tu corazón, conectar con Dios y descubrir qué es aquello que realmente te mueve y te llama por dentro. Muchas veces creemos que necesitamos encontrar una respuesta fuera, cuando primero necesitamos volver a conocernos.
+            </p>
+
+            <p>
+                Yo ofrezco un acompañamiento dentro de mi Escuela para ayudarte a recorrer ese proceso de una forma mucho más profunda. Y si ahora mismo no puedes entrar, también puedes empezar a conocer mi forma de ver este camino a través de mi contenido gratuito en YouTube.
+            </p>
+
+            <a href="https://www.youtube.com/@MaraTriguero" class="boton-pregunta" target="_blank">
+                CONOCER MI YOUTUBE <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="pregunta">
+
+        <button class="pregunta-boton" onclick="abrirPregunta(this)">
+            Quiero acercarme a Dios, pero no sé cómo empezar a construir una relación real con Él.
+            <span>+</span>
+        </button>
+
+        <div class="respuesta">
+
+            <p>
+                Si lo que realmente quieres es conocer a Dios y aprender a caminar junto a Él, ese proceso empieza también por conocerte a ti misma/o.
+            </p>
+
+            <p>
+                Dentro de Sala Arcoíris trabajamos profundamente la identidad como puerta de entrada para conocerte, sanar y empezar a construir una relación real con Dios y con Jesús.
+            </p>
+
+            <p>
+                Es un proceso basado en los doce pasos que a mí me cambiaron la vida y que hoy quiero acompañarte a recorrer.
+            </p>
+
+            <a href="https://aquiestadiosbymara.github.io/aqui-esta-dios/" class="boton-pregunta" target="_blank">
+                CONOCER SALA ARCOÍRIS <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="pregunta">
+
+        <button class="pregunta-boton" onclick="abrirPregunta(this)">
+            Siento que ya no sé quién soy y que me he perdido por el camino. ¿Cómo vuelvo a encontrarme?
+            <span>+</span>
+        </button>
+
+        <div class="respuesta">
+
+            <p>
+                A veces no necesitas convertirte en alguien nuevo, sino volver a encontrarte con la persona que siempre has sido debajo de todo lo que has aprendido, vivido y cargado.
+            </p>
+
+            <p>
+                En Sala Arcoíris trabajamos precisamente desde ahí: desde tu identidad. Porque cuando empiezas a conocerte de verdad y a mirar tu historia desde otro lugar, también empiezas a entender qué necesitas sanar, qué quieres dejar atrás y hacia dónde quieres caminar.
+            </p>
+
+            <p>
+                Y, sobre todo, empiezas a descubrir quién eres cuando dejas que Dios forme parte de ese proceso.
+            </p>
+
+            <a href="https://aquiestadiosbymara.github.io/aqui-esta-dios/" class="boton-pregunta" target="_blank">
+                CONOCER SALA ARCOÍRIS <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="pregunta">
+
+        <button class="pregunta-boton" onclick="abrirPregunta(this)">
+            Sé lo que quiero cambiar, pero mi mente y mis patrones siguen frenándome. ¿Qué hago?
+            <span>+</span>
+        </button>
+
+        <div class="respuesta">
+
+            <p>
+                Saber que quieres cambiar es importante, pero muchas veces no es suficiente. Puedes tener muy claro hacia dónde quieres ir y, aun así, seguir pensando, actuando y reaccionando desde los mismos patrones.
+            </p>
+
+            <p>
+                Por eso el trabajo con la mentalidad forma parte del proceso dentro de Sala Arcoíris. No se trata simplemente de pensar en positivo, sino de empezar a entender qué está ocurriendo dentro de ti y construir una manera diferente de vivir.
+            </p>
+
+            <a href="https://aquiestadiosbymara.github.io/aqui-esta-dios/" class="boton-pregunta" target="_blank">
+                CONOCER SALA ARCOÍRIS <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="pregunta">
+
+        <button class="pregunta-boton" onclick="abrirPregunta(this)">
+            Sé que quiero cambiar mi vida, pero siento que hacerlo sola/o no es suficiente.
+            <span>+</span>
+        </button>
+
+        <div class="respuesta">
+
+            <p>
+                Y quizá no tengas por qué hacerlo sola/o.
+            </p>
+
+            <p>
+                Hay procesos que puedes comenzar por tu cuenta, pero también hay momentos en los que tener a alguien que te acompañe, te haga preguntas, te ayude a mirar aquello que no estás viendo y camine contigo puede marcar una diferencia enorme.
+            </p>
+
+            <p>
+                En Sala Arcoíris tienes acompañamiento a través de dos llamadas grupales cada semana, una comunidad privada y un espacio en el que compartir tu proceso mientras yo voy aportando reflexiones, aprendizajes, versículos y herramientas para ayudarte a integrar todo lo que estamos trabajando.
+            </p>
+
+            <a href="https://aquiestadiosbymara.github.io/aqui-esta-dios/" class="boton-pregunta" target="_blank">
+                CONOCER SALA ARCOÍRIS <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
     </main>
 <script>
 
@@ -237,6 +485,25 @@
 
         document.getElementById("estado02")
             .textContent = "COMPLETADO";
+
+    }
+
+</script>
+    <script>
+
+    function abrirPregunta(boton) {
+
+        const preguntaActual = boton.parentElement;
+
+        document.querySelectorAll(".pregunta").forEach(function(pregunta) {
+
+            if (pregunta !== preguntaActual) {
+                pregunta.classList.remove("activa");
+            }
+
+        });
+
+        preguntaActual.classList.toggle("activa");
 
     }
 
