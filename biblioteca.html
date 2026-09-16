@@ -138,11 +138,11 @@
 
                 <div class="camino-linea"></div>
 
-                <div class="paso activo">
-                    <div class="circulo">01</div>
-                    <div class="paso-nombre">Determinación</div>
-                    <div class="paso-estado">DISPONIBLE</div>
-                </div>
+               <div class="paso" id="paso01">
+    <div class="circulo">01</div>
+    <div class="paso-nombre">Determinación</div>
+    <div class="paso-estado" id="estado01">DISPONIBLE</div>
+</div>
 
                 <div class="paso activo">
                     <div class="circulo">02</div>
@@ -209,6 +209,18 @@
         </section>
 
     </main>
+<script>
 
+    if (localStorage.getItem("codigo01Completado") === "true") {
+
+        document.getElementById("paso01")
+            .classList.add("completado");
+
+        document.getElementById("estado01")
+            .textContent = "COMPLETADO";
+
+    }
+
+</script>
 </body>
 </html>
