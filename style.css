@@ -167,3 +167,53 @@ button span {
     margin-left: 12px;
     color: #d0ad70;
 }
+.recurso-pagina {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 25px;
+}
+
+.recurso-pagina .marca {
+    margin: 0 0 35px 0;
+}
+
+.recurso-pagina h1 {
+    font-size: 75px;
+    line-height: 1;
+    margin-bottom: 35px;
+}
+
+.frase {
+    max-width: 550px;
+    color: #666666;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 45px;
+}
+
+.boton-recurso {
+    padding: 17px 32px;
+    background: #222222;
+    color: white;
+    border: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.boton-recurso span {
+    margin-left: 12px;
+    color: #d0ad70;
+}
+
+@media (max-width: 600px) {
+
+    .recurso-pagina h1 {
+        font-size: 52px;
+    }
+
+}
