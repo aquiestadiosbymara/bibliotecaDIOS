@@ -1,13 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Recursos gratuitos | Mara Triguero</title>
-
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .recorrido {
+            max-width: 950px;
+            margin: 0 auto 80px auto;
+            text-align: center;
+        }
+
+        .recorrido-titulo {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #9a805c;
+            margin-bottom: 35px;
+        }
+
+        .camino {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            position: relative;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .camino-linea {
+            position: absolute;
+            top: 28px;
+            left: 16%;
+            right: 16%;
+            height: 1px;
+            background: #d8cbbb;
+            z-index: 0;
+        }
+
+        .paso {
+            position: relative;
+            z-index: 1;
+            width: 33.33%;
+            text-align: center;
+        }
+
+        .circulo {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 18px auto;
+            border-radius: 50%;
+            background: #f4efe6;
+            border: 1px solid #bca889;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: #8b7355;
+        }
+
+        .paso.activo .circulo {
+            background: #222222;
+            border-color: #222222;
+            color: white;
+        }
+
+        .paso.bloqueado .circulo {
+            border-color: #d8d0c5;
+            color: #b8aea0;
+        }
+
+        .paso-nombre {
+            font-family: Georgia, serif;
+            font-size: 20px;
+            color: #222222;
+            margin-bottom: 7px;
+        }
+
+        .paso-estado {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            color: #9a805c;
+        }
+
+        .paso.bloqueado .paso-nombre {
+            color: #999999;
+        }
+
+        .paso.bloqueado .paso-estado {
+            color: #b8aea0;
+        }
+
+        @media (max-width: 700px) {
+            .camino-linea {
+                left: 10%;
+                right: 10%;
+            }
+
+            .circulo {
+                width: 48px;
+                height: 48px;
+            }
+
+            .paso-nombre {
+                font-size: 17px;
+            }
+
+            .paso-estado {
+                font-size: 9px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -22,6 +127,41 @@
             Herramientas para ayudarte a transformar aquello que ocurre dentro de ti.
         </p>
 
+
+        <!-- RECORRIDO -->
+
+        <section class="recorrido">
+
+            <p class="recorrido-titulo">TU RECORRIDO</p>
+
+            <div class="camino">
+
+                <div class="camino-linea"></div>
+
+                <div class="paso activo">
+                    <div class="circulo">01</div>
+                    <div class="paso-nombre">Determinación</div>
+                    <div class="paso-estado">DISPONIBLE</div>
+                </div>
+
+                <div class="paso activo">
+                    <div class="circulo">02</div>
+                    <div class="paso-nombre">Expectativa</div>
+                    <div class="paso-estado">DISPONIBLE</div>
+                </div>
+
+                <div class="paso bloqueado">
+                    <div class="circulo">03</div>
+                    <div class="paso-nombre">Hábitos</div>
+                    <div class="paso-estado">PRÓXIMAMENTE</div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECURSOS -->
 
         <section class="recursos">
 
@@ -54,7 +194,6 @@
 
 
             <div class="recurso proximo">
-
                 <span class="numero">03</span>
 
                 <p class="proximamente">PRÓXIMAMENTE</p>
@@ -65,7 +204,6 @@
                     Para comenzar a construir nuevos hábitos
                     y dejar atrás patrones que ya no quieres repetir.
                 </p>
-
             </div>
 
         </section>
