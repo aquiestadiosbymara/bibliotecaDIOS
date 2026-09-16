@@ -8,29 +8,987 @@
     <title>Código de la Determinación | Mara Triguero</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================
+           EXPERIENCIA DETERMINACIÓN
+        ========================= */
+
+        .determinacion {
+            min-height: 100vh;
+            padding: 60px 20px;
+            background: #f4efe6;
+        }
+
+        .experiencia {
+            max-width: 760px;
+            margin: auto;
+        }
+
+        .cabecera {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .cabecera .marca {
+            margin: 0 0 20px 0;
+        }
+
+        .cabecera h1 {
+            font-size: 58px;
+            margin-bottom: 25px;
+        }
+
+        .subtitulo {
+            max-width: 560px;
+            margin: auto;
+            color: #666666;
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        /* VIDEO */
+
+        .video-contenedor {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            margin: 45px auto;
+            overflow: hidden;
+            background: #222222;
+        }
+
+        .video-contenedor iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* BOTONES */
+
+        .boton-determinacion {
+            display: inline-block;
+            padding: 17px 30px;
+            background: #222222;
+            color: white;
+            border: none;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        .boton-determinacion span {
+            margin-left: 12px;
+            color: #d0ad70;
+        }
+
+        .centrado {
+            text-align: center;
+        }
+
+        /* PROGRESO */
+
+        .progreso-contenedor {
+            margin-bottom: 55px;
+        }
+
+        .progreso-texto {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #8b7355;
+            margin-bottom: 12px;
+        }
+
+        .progreso-linea {
+            width: 100%;
+            height: 3px;
+            background: #ded5c8;
+            overflow: hidden;
+        }
+
+        .progreso-barra {
+            height: 100%;
+            width: 20%;
+            background: #8b7355;
+            transition: width 0.5s ease;
+        }
+
+        /* PASOS */
+
+        .paso {
+            display: none;
+            animation: aparecer 0.5s ease;
+        }
+
+        .paso.activo {
+            display: block;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .numero-principio {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: #9a805c;
+            margin-bottom: 20px;
+        }
+
+        .paso h2 {
+            font-family: Georgia, serif;
+            font-size: 44px;
+            font-weight: normal;
+            line-height: 1.15;
+            margin: 0 0 30px 0;
+        }
+
+        .texto {
+            color: #444444;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .bloque {
+            margin: 35px 0;
+        }
+
+        .etiqueta {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #9a805c;
+            margin-bottom: 12px;
+        }
+
+        .destacado {
+            margin: 35px 0;
+            padding: 30px;
+            background: #ffffff;
+            border-left: 3px solid #d0ad70;
+            font-family: Georgia, serif;
+            font-size: 22px;
+            line-height: 1.5;
+        }
+
+        .ejemplo {
+            padding: 30px;
+            background: #ebe3d7;
+            margin: 35px 0;
+        }
+
+        .ejemplo .texto {
+            margin: 0;
+        }
+
+        /* PREGUNTA */
+
+        .pregunta {
+            margin-top: 45px;
+            padding-top: 35px;
+            border-top: 1px solid #ded5c8;
+        }
+
+        .pregunta-titulo {
+            font-size: 15px;
+            color: #555555;
+            margin-bottom: 18px;
+        }
+
+        .campo-respuesta {
+            width: 100%;
+            min-height: 120px;
+            box-sizing: border-box;
+            padding: 18px;
+            border: 1px solid #d8cfc2;
+            background: #ffffff;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            resize: vertical;
+            outline: none;
+        }
+
+        .campo-respuesta:focus {
+            border-color: #9a805c;
+        }
+
+        .zona-boton {
+            margin-top: 30px;
+            text-align: right;
+        }
+
+        /* OPCIONES */
+
+        .opciones {
+            display: grid;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .opcion {
+            padding: 18px 20px;
+            background: #ffffff;
+            border: 1px solid #ded5c8;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.25s;
+            font-size: 15px;
+        }
+
+        .opcion:hover {
+            transform: translateX(5px);
+            border-color: #9a805c;
+        }
+
+        .opcion.seleccionada {
+            border-color: #9a805c;
+            background: #ebe3d7;
+        }
+
+        .respuesta-opcion {
+            display: none;
+            margin-top: 25px;
+            padding: 25px;
+            background: #ffffff;
+            color: #555555;
+            line-height: 1.7;
+        }
+
+        .respuesta-opcion.visible {
+            display: block;
+            animation: aparecer 0.4s ease;
+        }
+
+        /* PLACER / PROPÓSITO */
+
+        .eleccion {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin: 35px 0;
+        }
+
+        .eleccion span {
+            font-family: Georgia, serif;
+            font-size: 24px;
+        }
+
+        .flecha {
+            color: #9a805c;
+            font-size: 25px;
+        }
+
+        /* FINAL */
+
+        .final {
+            display: none;
+            text-align: center;
+            animation: aparecer 0.7s ease;
+        }
+
+        .final.activo {
+            display: block;
+        }
+
+        .final-numero {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #9a805c;
+            margin-bottom: 25px;
+        }
+
+        .final h2 {
+            font-family: Georgia, serif;
+            font-size: 48px;
+            font-weight: normal;
+            line-height: 1.15;
+            margin-bottom: 25px;
+        }
+
+        .final p {
+            color: #666666;
+            line-height: 1.7;
+            max-width: 500px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* MÓVIL */
+
+        @media (max-width: 600px) {
+
+            .determinacion {
+                padding: 45px 20px;
+            }
+
+            .cabecera h1 {
+                font-size: 42px;
+            }
+
+            .paso h2 {
+                font-size: 34px;
+            }
+
+            .destacado {
+                font-size: 19px;
+                padding: 25px;
+            }
+
+            .eleccion span {
+                font-size: 19px;
+            }
+
+            .final h2 {
+                font-size: 38px;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-    <main class="recurso-pagina">
+<main class="determinacion">
 
-        <p class="marca">CÓDIGO 01</p>
+<div class="experiencia">
 
-        <h1>La<br>Determinación</h1>
 
-        <p class="frase">
-            Hay decisiones que ya sabes que tienes que tomar.
-            Lo que falta no es saberlo. Es decidirte.
-        </p>
+    <!-- =========================
+         PORTADA
+    ========================= -->
 
-        <button class="boton-recurso" onclick="comenzarRecurso()">
-            COMENZAR
-            <span>→</span>
-        </button>
+    <section id="portada">
 
-    </main>
+        <div class="cabecera">
 
-    <script src="script.js"></script>
+            <p class="marca">CÓDIGO 01</p>
+
+            <h1>La<br>Determinación</h1>
+
+            <p class="subtitulo">
+                Los principios que empezaron a transformar mi forma de vivir,
+                decidir y caminar con Dios
+            </p>
+
+        </div>
+
+
+        <div class="video-contenedor">
+
+            <iframe
+                src="https://www.youtube.com/embed/dBeZ5urYuSA"
+                title="Código de la Determinación"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+
+        <div class="centrado">
+
+            <button class="boton-determinacion" onclick="comenzar()">
+                COMENZAR
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         EXPERIENCIA
+    ========================= -->
+
+    <section id="contenido" style="display:none;">
+
+
+        <div class="progreso-contenedor">
+
+            <div class="progreso-texto">
+
+                <span id="numeroProgreso">01 / 05</span>
+
+                <span id="textoProgreso">DETERMINACIÓN</span>
+
+            </div>
+
+            <div class="progreso-linea">
+
+                <div
+                    class="progreso-barra"
+                    id="barra">
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             PRINCIPIO 01
+        ========================= -->
+
+        <article class="paso activo" id="paso1">
+
+            <p class="numero-principio">PRINCIPIO 01</p>
+
+            <h2>
+                1. ANTES DE DECIDIR, PREGUNTALE A DIOS
+            </h2>
+
+            <div class="bloque texto">
+
+                <p>
+                    La verdadera determinación empieza cuando decides poner
+                    a Dios en el centro de cada decisión de tu vida.
+                </p>
+
+            </div>
+
+
+            <div class="pregunta">
+
+                <p class="pregunta-titulo">
+                    🤍 Hoy pregúntate:
+                </p>
+
+                <div class="destacado">
+                    ¿Qué decisión necesito dejar de tomar solo y empezar
+                    a tomar con Dios?
+                </div>
+
+                <textarea
+                    class="campo-respuesta"
+                    placeholder="Escribe aquí lo que te venga..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="zona-boton">
+
+                <button
+                    class="boton-determinacion"
+                    onclick="siguiente(2)">
+                    CONTINUAR
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =========================
+             PRINCIPIO 02
+        ========================= -->
+
+        <article class="paso" id="paso2">
+
+            <p class="numero-principio">PRINCIPIO 02</p>
+
+            <h2>
+                02. NUNCA VUELVAS A FALLARTE
+            </h2>
+
+
+            <div class="bloque texto">
+
+                <p>
+                    Cada vez que te fallas a ti mismo creas un precedente mental.
+                </p>
+
+                <p>
+                    Tu cerebro empieza a guardar pruebas de si puede confiar
+                    en ti o no.
+                </p>
+
+            </div>
+
+
+            <div class="ejemplo">
+
+                <p class="etiqueta">EJEMPLO:</p>
+
+                <p class="texto">
+                    Por ejemplo: si dices que vas a levantarte a las 7 para
+                    ir al gimnasio y no vas, no solo has perdido un
+                    entrenamiento. Has enseñado a tu mente que tu palabra
+                    no siempre se cumple.
+                </p>
+
+            </div>
+
+
+            <div class="bloque texto">
+
+                <p>
+                    Por eso, cada vez que cumples lo que dices, construyes
+                    confianza en ti mismo.
+                </p>
+
+            </div>
+
+
+            <p class="etiqueta">✨ Quédate con esto:</p>
+
+            <div class="destacado">
+
+                La confianza en ti mismo no aparece porque sí.
+                Se construye cada vez que cumples tu palabra.
+
+            </div>
+
+
+            <div class="pregunta">
+
+                <p class="pregunta-titulo">
+                    🤍 Hoy pregúntate:¿Qué promesa conmigo mismo necesito
+                    empezar a cumplir?
+                </p>
+
+                <textarea
+                    class="campo-respuesta"
+                    placeholder="Escribe aquí..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="zona-boton">
+
+                <button
+                    class="boton-determinacion"
+                    onclick="siguiente(3)">
+                    CONTINUAR
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =========================
+             PRINCIPIO 03
+        ========================= -->
+
+        <article class="paso" id="paso3">
+
+            <p class="numero-principio">PRINCIPIO 03</p>
+
+            <h2>
+                03. EL DEBER ANTES QUE EL PLACER
+            </h2>
+
+
+            <div class="bloque texto">
+
+                <p>
+                    No siempre lo que te apetece es lo que necesitas.
+                </p>
+
+                <p>
+                    Muchas veces el deseo de tu carne va en una dirección
+                    y el propósito que Dios tiene para ti va en otra.
+                </p>
+
+            </div>
+
+
+            <div class="ejemplo">
+
+                <p class="etiqueta">EJEMPLO:</p>
+
+                <p class="texto">
+                    Te proponen ir a la playa, pero sabes que hoy necesitas
+                    trabajar en ti, avanzar en tus metas o cumplir con algo
+                    importante.
+                </p>
+
+                <p class="texto">
+                    La persona determinada entiende que no puede vivir guiada
+                    por impulsos. Aprende a elegir lo que le acerca a la
+                    persona que quiere ser.
+                </p>
+
+            </div>
+
+
+            <p class="etiqueta">✨ Quédate con esto:</p>
+
+            <div class="destacado">
+
+                El crecimiento empieza cuando haces lo que debes,
+                incluso cuando no te apetece.
+
+            </div>
+
+
+            <div class="pregunta">
+
+                <p class="pregunta-titulo">
+                    🤍 Hoy pregúntate:
+                </p>
+
+                <div class="destacado">
+
+                    ¿Qué estoy eligiendo por placer inmediato en lugar
+                    de por propósito?
+
+                </div>
+
+
+                <div class="opciones">
+
+                    <div class="opcion"
+                         onclick="seleccionar(this)">
+                        Algo que sé que debería hacer.
+                    </div>
+
+                    <div class="opcion"
+                         onclick="seleccionar(this)">
+                        Algo que estoy posponiendo.
+                    </div>
+
+                    <div class="opcion"
+                         onclick="seleccionar(this)">
+                        Una decisión que estoy evitando.
+                    </div>
+
+                </div>
+
+
+                <textarea
+                    class="campo-respuesta"
+                    style="margin-top:20px;"
+                    placeholder="Escribe tu respuesta..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="zona-boton">
+
+                <button
+                    class="boton-determinacion"
+                    onclick="siguiente(4)">
+                    CONTINUAR
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =========================
+             PRINCIPIO 04
+        ========================= -->
+
+        <article class="paso" id="paso4">
+
+            <p class="numero-principio">PRINCIPIO 04</p>
+
+            <h2>
+                04. CUIDA TU ENTORNO
+            </h2>
+
+
+            <div class="bloque texto">
+
+                <p>
+                    Tu entorno puede acercarte a tu propósito o alejarte de él.
+                </p>
+
+                <p>
+                    No todo el mundo que te quiere sabe acompañarte hacia
+                    la persona que estás llamado a ser.
+                </p>
+
+                <p>
+                    A veces tendrás que aceptar que hay personas,
+                    conversaciones y ambientes que ya no encajan con la vida
+                    que Dios está construyendo en ti.
+                </p>
+
+                <p>
+                    No se trata de creerte más que nadie.
+                </p>
+
+                <p>
+                    Se trata de proteger aquello que Dios está formando
+                    dentro de ti.
+                </p>
+
+            </div>
+
+
+            <p class="etiqueta">✨ Quédate con esto:</p>
+
+            <div class="destacado">
+
+                No puedes construir una vida diferente rodeándote de lo mismo
+                que te mantenía en tu antigua vida.
+
+            </div>
+
+
+            <div class="pregunta">
+
+                <p class="pregunta-titulo">
+                    🤍 Hoy pregúntate:¿Mi entorno me está acercando o alejando
+                    de la persona que quiero ser?
+                </p>
+
+                <textarea
+                    class="campo-respuesta"
+                    placeholder="Escribe aquí..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="zona-boton">
+
+                <button
+                    class="boton-determinacion"
+                    onclick="siguiente(5)">
+                    CONTINUAR
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =========================
+             PRINCIPIO 05
+        ========================= -->
+
+        <article class="paso" id="paso5">
+
+            <p class="numero-principio">PRINCIPIO 05</p>
+
+            <h2>
+                05. ASUME EL 100% DE LA RESPONSABILIDAD
+            </h2>
+
+
+            <div class="bloque texto">
+
+                <p>
+                    Tu vida no cambia cuando esperas que cambien las
+                    circunstancias.
+                </p>
+
+                <p>
+                    Cambia cuando decides hacerte responsable de lo que
+                    sí está en tus manos.
+                </p>
+
+                <p>
+                    No puedes controlar todo lo que ocurre, pero sí puedes
+                    decidir cómo respondes.
+                </p>
+
+                <p>
+                    Mientras busques culpables fuera, estarás entregando
+                    el poder de transformar tu vida.
+                </p>
+
+                <p>
+                    Dios puede guiarte, ayudarte y abrir caminos, pero tú
+                    tienes que dar los pasos.
+                </p>
+
+            </div>
+
+
+            <p class="etiqueta">✨ Quédate con esto:</p>
+
+            <div class="destacado">
+
+                Cuando asumes el 100% de la responsabilidad, dejas de esperar
+                que tu vida cambie y empiezas a construirla.
+
+            </div>
+
+
+            <div class="pregunta">
+
+                <p class="pregunta-titulo">
+                    🤍 Hoy pregúntate:
+                </p>
+
+                <div class="destacado">
+
+                    ¿Qué parte de mi vida sigo esperando que cambie en lugar
+                    de tomar acción?
+
+                </div>
+
+                <textarea
+                    class="campo-respuesta"
+                    placeholder="Escribe aquí..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="zona-boton">
+
+                <button
+                    class="boton-determinacion"
+                    onclick="finalizar()">
+                    TERMINAR
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =========================
+             FINAL
+        ========================= -->
+
+        <section class="final" id="final">
+
+            <p class="final-numero">
+                CÓDIGO 01 · COMPLETADO
+            </p>
+
+            <h2>
+                Ya no es solo algo que has leído.
+            </h2>
+
+            <p>
+                Ahora tienes que decidir qué vas a hacer con ello.
+            </p>
+
+            <a
+                href="biblioteca.html"
+                class="boton-determinacion">
+                VOLVER A LA BIBLIOTECA
+                <span>→</span>
+            </a>
+
+        </section>
+
+
+    </section>
+
+</div>
+
+</main>
+
+
+
+<script>
+
+    let pasoActual = 1;
+
+
+    function comenzar() {
+
+        document.getElementById("portada").style.display = "none";
+
+        document.getElementById("contenido").style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    function siguiente(numero) {
+
+        document.getElementById("paso" + pasoActual)
+            .classList.remove("activo");
+
+        pasoActual = numero;
+
+        document.getElementById("paso" + pasoActual)
+            .classList.add("activo");
+
+
+        document.getElementById("numeroProgreso").textContent =
+            "0" + pasoActual + " / 05";
+
+
+        document.getElementById("barra").style.width =
+            (pasoActual * 20) + "%";
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    function seleccionar(elemento) {
+
+        const opciones =
+            document.querySelectorAll(".opcion");
+
+        opciones.forEach(function(opcion) {
+
+            opcion.classList.remove("seleccionada");
+
+        });
+
+        elemento.classList.add("seleccionada");
+
+    }
+
+
+    function finalizar() {
+
+        document.getElementById("paso5")
+            .classList.remove("activo");
+
+        document.querySelector(".progreso-contenedor")
+            .style.display = "none";
+
+        document.getElementById("final")
+            .classList.add("activo");
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+</script>
 
 </body>
 </html>
