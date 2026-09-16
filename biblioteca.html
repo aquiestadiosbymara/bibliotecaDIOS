@@ -229,6 +229,17 @@
 
     }
 
+
+    if (localStorage.getItem("codigo02Completado") === "true") {
+
+        document.getElementById("paso02")
+            .classList.add("completado");
+
+        document.getElementById("estado02")
+            .textContent = "COMPLETADO";
+
+    }
+
 </script>
 </body>
 </html>
