@@ -355,6 +355,64 @@
     line-height: 1.8;
     margin: 0;
 }
+        .compartir-experiencia {
+    max-width: 650px;
+    margin: 70px auto 45px auto;
+    padding-top: 50px;
+    border-top: 1px solid #d8cbbb;
+    text-align: center;
+}
+
+.compartir-titulo {
+    color: #9a805c;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.compartir-texto {
+    max-width: 600px;
+    margin: 0 auto 18px auto;
+    color: #666666;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.compartir-nota {
+    max-width: 570px;
+    margin: 25px auto 30px auto;
+    color: #8b7355;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.boton-compartir {
+    display: inline-block;
+    padding: 17px 30px;
+    background: #222222;
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.boton-compartir span {
+    margin-left: 12px;
+    color: #d0ad70;
+}
+
+@media (max-width: 700px) {
+
+    .compartir-experiencia {
+        margin-top: 55px;
+        padding-top: 40px;
+    }
+
+    .compartir-texto {
+        font-size: 15px;
+    }
+
+}
         .volver-recurso:hover {
             color: #222222;
         }
@@ -898,7 +956,34 @@
         </div>
 
     </div>
+<div class="compartir-experiencia">
 
+    <p class="compartir-titulo">
+        ¿QUIERES COMPARTIR TU EXPERIENCIA?
+    </p>
+
+    <p class="compartir-texto">
+        Gracias por completar el Código de la Expectativa.
+    </p>
+
+    <p class="compartir-texto">
+        Si quieres, puedes compartir conmigo cómo ha sido tu experiencia con este recurso. Tus respuestas me ayudarán a entender qué te está sirviendo realmente y a crear nuevos recursos que respondan a necesidades reales.
+    </p>
+
+    <p class="compartir-nota">
+        No necesitas compartir las respuestas personales que has escrito durante el ejercicio. Aquí solo quiero conocer tu experiencia con el recurso.
+    </p>
+
+    <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSdymn6SCpvtKfaWG-UtcQwymYAQruKUvj-TwskcUg7jDkO7ng/viewform"
+        target="_blank"
+        class="boton-compartir"
+    >
+        QUIERO COMPARTIR MI EXPERIENCIA
+        <span>→</span>
+    </a>
+
+</div>
     <a
         href="biblioteca.html"
         class="boton"
