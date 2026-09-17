@@ -907,7 +907,44 @@ localStorage.setItem("codigo02Completado", "true");
         });
 
     }
+function guardarRespuestas() {
 
+    const campos = document.querySelectorAll(".campo-respuesta");
+
+    const respuestas = {
+        pregunta1: campos[0] ? campos[0].value : "",
+        pregunta2: campos[1] ? campos[1].value : "",
+        pregunta3: campos[2] ? campos[2].value : "",
+        pregunta4: campos[3] ? campos[3].value : ""
+    };
+
+    localStorage.setItem(
+        "codigo02Respuestas",
+        JSON.stringify(respuestas)
+    );
+}
+
+document.querySelectorAll(".campo-respuesta").forEach(function(campo) {
+    campo.addEventListener("input", guardarRespuestas);
+});
+
+cargarRespuestas();
+
+function cargarRespuestas() {
+
+    const guardadas = JSON.parse(
+        localStorage.getItem("codigo02Respuestas")
+    );
+
+    if (!guardadas) return;
+
+    const campos = document.querySelectorAll(".campo-respuesta");
+
+    if (campos[0]) campos[0].value = guardadas.pregunta1 || "";
+    if (campos[1]) campos[1].value = guardadas.pregunta2 || "";
+    if (campos[2]) campos[2].value = guardadas.pregunta3 || "";
+    if (campos[3]) campos[3].value = guardadas.pregunta4 || "";
+}
 </script>
 
 </body>
