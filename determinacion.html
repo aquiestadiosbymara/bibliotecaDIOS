@@ -1096,6 +1096,29 @@ function cargarRespuestas() {
         });
     }
 }
+    function mostrarRespuestas() {
+
+    const guardadas = JSON.parse(
+        localStorage.getItem("codigo01Respuestas")
+    ) || {};
+
+    document.getElementById("respuesta1").textContent =
+        guardadas.principio1 || "No escribiste ninguna respuesta.";
+
+    document.getElementById("respuesta2").textContent =
+        guardadas.principio2 || "No escribiste ninguna respuesta.";
+
+    document.getElementById("respuesta3").textContent =
+        guardadas.principio3 || "No escribiste ninguna respuesta.";
+
+    document.getElementById("respuesta4").textContent =
+        guardadas.principio4 || "No escribiste ninguna respuesta.";
+
+    document.getElementById("respuesta5").textContent =
+        guardadas.principio5 || "No escribiste ninguna respuesta.";
+
+    document.getElementById("misRespuestas").style.display = "block";
+}
 </script>
 
 </body>
