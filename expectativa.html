@@ -901,8 +901,7 @@
         <!-- =========================
              FINAL
         ========================= -->
-
-      <section class="final" id="final">
+<section class="final" id="final">
 
     <p class="marca">
         CÓDIGO 02 · COMPLETADO
@@ -921,69 +920,90 @@
         <span>→</span>
     </button>
 
-    <div id="misRespuestas" class="mis-respuestas" style="display: none;">
+</section>
 
-        <div class="respuesta-guardada">
-            <p class="titulo-respuesta">PARTE 01</p>
-            <p class="pregunta-respuesta">
-                ¿Hay algo que deseas y a lo que le has puesto una fecha límite?
-            </p>
-            <p id="respuesta1"></p>
-        </div>
+<section class="pantalla-respuestas" id="pantallaRespuestas" style="display: none;">
 
-        <div class="respuesta-guardada">
-            <p class="titulo-respuesta">PARTE 02</p>
-            <p class="pregunta-respuesta">
-                ¿En qué área de mi vida estoy intentando controlar el cuándo, el cómo o el resultado?
-            </p>
-            <p id="respuesta2"></p>
-        </div>
+    <p class="marca">
+        CÓDIGO 02 · TUS RESPUESTAS
+    </p>
 
-        <div class="respuesta-guardada">
-            <p class="titulo-respuesta">PARTE 03</p>
-            <p class="pregunta-respuesta">
-                Escribe algo que quieres construir en tu vida.
-            </p>
-            <p id="respuesta3"></p>
-        </div>
+    <div class="respuesta-guardada">
 
-        <div class="respuesta-guardada">
-            <p class="titulo-respuesta">PARTE 04</p>
-            <p class="pregunta-respuesta">
-                ¿Qué necesitas soltar hoy?
-            </p>
-            <p id="respuesta4"></p>
-        </div>
+        <p class="titulo-respuesta">PARTE 01</p>
+
+        <p class="pregunta-respuesta">
+            ¿Hay algo que deseas y a lo que le has puesto una fecha límite?
+        </p>
+
+        <p id="respuesta1"></p>
 
     </div>
-<div class="compartir-experiencia">
 
-    <p class="compartir-titulo">
-        ¿QUIERES COMPARTIR TU EXPERIENCIA?
-    </p>
+    <div class="compartir-experiencia">
 
-    <p class="compartir-texto">
-        Gracias por completar el Código de la Expectativa.
-    </p>
+        <p class="compartir-titulo">
+            ¿QUIERES COMPARTIR TU EXPERIENCIA?
+        </p>
 
-    <p class="compartir-texto">
-        Si quieres, puedes compartir conmigo cómo ha sido tu experiencia con este recurso. Tus respuestas me ayudarán a entender qué te está sirviendo realmente y a crear nuevos recursos que respondan a necesidades reales.
-    </p>
+        <p class="compartir-texto">
+            Gracias por completar el Código de la Expectativa.
+        </p>
 
-    <p class="compartir-nota">
-        No necesitas compartir las respuestas personales que has escrito durante el ejercicio. Aquí solo quiero conocer tu experiencia con el recurso.
-    </p>
+        <p class="compartir-texto">
+            Si quieres, puedes compartir conmigo cómo ha sido tu experiencia con este recurso. Tus respuestas me ayudarán a entender qué te está sirviendo realmente y a crear nuevos recursos que respondan a necesidades reales.
+        </p>
 
-    <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSdymn6SCpvtKfaWG-UtcQwymYAQruKUvj-TwskcUg7jDkO7ng/viewform"
-        target="_blank"
-        class="boton-compartir"
-    >
-        QUIERO COMPARTIR MI EXPERIENCIA
-        <span>→</span>
-    </a>
+        <p class="compartir-nota">
+            No necesitas compartir las respuestas personales que has escrito durante el ejercicio. Aquí solo quiero conocer tu experiencia con el recurso.
+        </p>
 
-</div>
+        <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdymn6SCpvtKfaWG-UtcQwymYAQruKUvj-TwskcUg7jDkO7ng/viewform"
+            target="_blank"
+            class="boton-compartir">
+            QUIERO COMPARTIR MI EXPERIENCIA
+            <span>→</span>
+        </a>
+
+    </div>
+
+    <div class="respuesta-guardada">
+
+        <p class="titulo-respuesta">PARTE 02</p>
+
+        <p class="pregunta-respuesta">
+            ¿En qué área de mi vida estoy intentando controlar el cuándo, el cómo o el resultado?
+        </p>
+
+        <p id="respuesta2"></p>
+
+    </div>
+
+    <div class="respuesta-guardada">
+
+        <p class="titulo-respuesta">PARTE 03</p>
+
+        <p class="pregunta-respuesta">
+            Escribe algo que quieres construir en tu vida.
+        </p>
+
+        <p id="respuesta3"></p>
+
+    </div>
+
+    <div class="respuesta-guardada">
+
+        <p class="titulo-respuesta">PARTE 04</p>
+
+        <p class="pregunta-respuesta">
+            ¿Qué necesitas soltar hoy?
+        </p>
+
+        <p id="respuesta4"></p>
+
+    </div>
+
     <a
         href="biblioteca.html"
         class="boton"
@@ -1104,7 +1124,7 @@ function cargarRespuestas() {
     if (campos[2]) campos[2].value = guardadas.pregunta3 || "";
     if (campos[3]) campos[3].value = guardadas.pregunta4 || "";
 }
-    function mostrarRespuestas() {
+   function mostrarRespuestas() {
 
     const guardadas = JSON.parse(
         localStorage.getItem("codigo02Respuestas")
@@ -1122,7 +1142,14 @@ function cargarRespuestas() {
     document.getElementById("respuesta4").textContent =
         guardadas.pregunta4 || "No escribiste ninguna respuesta.";
 
-    document.getElementById("misRespuestas").style.display = "block";
+    document.getElementById("final").style.display = "none";
+
+    document.getElementById("pantallaRespuestas").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
 </script>
 
