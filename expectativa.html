@@ -322,7 +322,39 @@
             font-size: 10px;
             letter-spacing: 2px;
         }
+.mis-respuestas {
+    margin-top: 45px;
+    text-align: left;
+}
 
+.respuesta-guardada {
+    padding: 30px 0;
+    border-top: 1px solid #d8cbbb;
+}
+
+.respuesta-guardada:last-child {
+    border-bottom: 1px solid #d8cbbb;
+}
+
+.respuesta-guardada .titulo-respuesta {
+    color: #9a805c !important;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin: 0 0 14px 0;
+}
+
+.respuesta-guardada .pregunta-respuesta {
+    color: #222222;
+    font-weight: bold;
+    line-height: 1.6;
+    margin: 0 0 15px 0;
+}
+
+.respuesta-guardada p:last-child {
+    color: #666666;
+    line-height: 1.8;
+    margin: 0;
+}
         .volver-recurso:hover {
             color: #222222;
         }
@@ -812,28 +844,70 @@
              FINAL
         ========================= -->
 
-        <section class="final" id="final">
+      <section class="final" id="final">
 
-            <p class="marca">
-                CÓDIGO 02 · COMPLETADO
+    <p class="marca">
+        CÓDIGO 02 · COMPLETADO
+    </p>
+
+    <h2>
+        Suelta el control.
+    </h2>
+
+    <p>
+        Entrégaselo a Dios.
+    </p>
+
+    <button class="boton" type="button" onclick="mostrarRespuestas()">
+        VER MIS RESPUESTAS
+        <span>→</span>
+    </button>
+
+    <div id="misRespuestas" class="mis-respuestas" style="display: none;">
+
+        <div class="respuesta-guardada">
+            <p class="titulo-respuesta">PARTE 01</p>
+            <p class="pregunta-respuesta">
+                ¿Hay algo que deseas y a lo que le has puesto una fecha límite?
             </p>
+            <p id="respuesta1"></p>
+        </div>
 
-            <h2>
-                Suelta el control.
-            </h2>
-
-            <p>
-                Entrégaselo a Dios.
+        <div class="respuesta-guardada">
+            <p class="titulo-respuesta">PARTE 02</p>
+            <p class="pregunta-respuesta">
+                ¿En qué área de mi vida estoy intentando controlar el cuándo, el cómo o el resultado?
             </p>
+            <p id="respuesta2"></p>
+        </div>
 
-            <a
-                href="biblioteca.html"
-                class="boton">
-                VOLVER A LA BIBLIOTECA
-                <span>→</span>
-            </a>
+        <div class="respuesta-guardada">
+            <p class="titulo-respuesta">PARTE 03</p>
+            <p class="pregunta-respuesta">
+                Escribe algo que quieres construir en tu vida.
+            </p>
+            <p id="respuesta3"></p>
+        </div>
 
-        </section>
+        <div class="respuesta-guardada">
+            <p class="titulo-respuesta">PARTE 04</p>
+            <p class="pregunta-respuesta">
+                ¿Qué necesitas soltar hoy?
+            </p>
+            <p id="respuesta4"></p>
+        </div>
+
+    </div>
+
+    <a
+        href="biblioteca.html"
+        class="boton"
+        style="margin-top: 35px;">
+        VOLVER A LA BIBLIOTECA
+        <span>→</span>
+    </a>
+
+</section>
 
 
     </section>
@@ -944,6 +1018,26 @@ function cargarRespuestas() {
     if (campos[1]) campos[1].value = guardadas.pregunta2 || "";
     if (campos[2]) campos[2].value = guardadas.pregunta3 || "";
     if (campos[3]) campos[3].value = guardadas.pregunta4 || "";
+}
+    function mostrarRespuestas() {
+
+    const guardadas = JSON.parse(
+        localStorage.getItem("codigo02Respuestas")
+    ) || {};
+
+    document.getElementById("respuesta1").textContent =
+        guardadas.pregunta1 || "No escribiste ninguna respuesta.";
+
+    document.getElementById("respuesta2").textContent =
+        guardadas.pregunta2 || "No escribiste ninguna respuesta.";
+
+    document.getElementById("respuesta3").textContent =
+        guardadas.pregunta3 || "No escribiste ninguna respuesta.";
+
+    document.getElementById("respuesta4").textContent =
+        guardadas.pregunta4 || "No escribiste ninguna respuesta.";
+
+    document.getElementById("misRespuestas").style.display = "block";
 }
 </script>
 
