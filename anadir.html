@@ -1,1 +1,1020 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Añadir un hábito · Código de los hábitos</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f4efe6;
+    color: #222222;
+    font-family: Arial, sans-serif;
+}
+
+.pagina {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 55px 25px 80px;
+}
+
+.volver {
+    display: inline-block;
+    margin-bottom: 45px;
+    color: #8b7355;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.volver:hover {
+    color: #222222;
+}
+
+.marca {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #9a805c;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 48px;
+    font-weight: normal;
+    line-height: 1.1;
+    margin: 0 0 25px;
+}
+
+.intro {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #666666;
+    max-width: 700px;
+    margin-bottom: 65px;
+}
+
+/* =========================
+   TEORÍA
+   ========================= */
+
+.bloque {
+    background: white;
+    border: 1px solid #e1d9cd;
+    padding: 45px;
+    margin-bottom: 25px;
+}
+
+.bloque-etiqueta {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #9a805c;
+    margin-bottom: 25px;
+}
+
+.bloque h2 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    font-weight: normal;
+    margin: 0 0 25px;
+}
+
+.bloque p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #555555;
+    margin: 0 0 20px;
+}
+
+.bloque p:last-child {
+    margin-bottom: 0;
+}
+
+.ejemplos {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.ejemplo {
+    border: 1px solid #d8cbbb;
+    padding: 13px 18px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #8b7355;
+    background: #f9f6f0;
+}
+
+/* =========================
+   JUEGO
+   ========================= */
+
+.juego {
+    margin-top: 75px;
+}
+
+.juego-cabecera {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.juego-etiqueta {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #9a805c;
+    margin-bottom: 18px;
+}
+
+.juego-cabecera h2 {
+    font-family: Georgia, serif;
+    font-size: 38px;
+    font-weight: normal;
+    margin: 0 0 15px;
+}
+
+.juego-cabecera p {
+    color: #666666;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.juego-pantalla {
+    background: white;
+    border: 1px solid #e1d9cd;
+    padding: 50px 45px;
+    min-height: 330px;
+}
+
+.juego-paso {
+    display: none;
+}
+
+.juego-paso.activo {
+    display: block;
+}
+
+.juego-numero {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #9a805c;
+    margin-bottom: 20px;
+}
+
+.juego-paso h3 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 1.3;
+    margin: 0 0 18px;
+}
+
+.juego-paso p {
+    color: #666666;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.juego-opciones {
+    display: grid;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.juego-opcion {
+    width: 100%;
+    padding: 18px 20px;
+    background: #f9f6f0;
+    border: 1px solid #d8cbbb;
+    text-align: left;
+    color: #222222;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.juego-opcion:hover {
+    background: #f4efe6;
+    border-color: #b89a6a;
+}
+
+.juego-opcion.seleccionada {
+    background: #222222;
+    color: white;
+    border-color: #222222;
+}
+
+.juego-input {
+    width: 100%;
+    padding: 17px 18px;
+    border: 1px solid #d8cbbb;
+    background: #faf8f4;
+    color: #222222;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    outline: none;
+    margin-top: 10px;
+}
+
+.juego-input:focus {
+    border-color: #9a805c;
+}
+
+.juego-textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 17px 18px;
+    border: 1px solid #d8cbbb;
+    background: #faf8f4;
+    color: #222222;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    resize: vertical;
+    outline: none;
+    margin-top: 10px;
+}
+
+.juego-textarea:focus {
+    border-color: #9a805c;
+}
+
+.juego-boton {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 16px 27px;
+    border: none;
+    background: #222222;
+    color: white;
+    font-size: 10px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.juego-boton:hover {
+    background: #8b7355;
+}
+
+.juego-error {
+    display: none;
+    margin-top: 15px;
+    color: #9a805c;
+    font-size: 12px;
+}
+
+.juego-progreso {
+    height: 2px;
+    background: #ded6ca;
+    margin-bottom: 25px;
+}
+
+.juego-progreso-barra {
+    height: 100%;
+    width: 0%;
+    background: #8b7355;
+    transition: width 0.3s ease;
+}
+
+/* =========================
+   RESULTADO
+   ========================= */
+
+.juego-resultado {
+    display: none;
+}
+
+.resultado-caja {
+    background: #f9f6f0;
+    border: 1px solid #d8cbbb;
+    padding: 30px;
+    margin: 30px 0;
+}
+
+.resultado-linea {
+    margin-bottom: 20px;
+}
+
+.resultado-linea:last-child {
+    margin-bottom: 0;
+}
+
+.resultado-label {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #9a805c;
+    margin-bottom: 7px;
+}
+
+.resultado-valor {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    color: #222222;
+    line-height: 1.4;
+}
+
+.juego-frase-final {
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    line-height: 1.6;
+    color: #222222;
+    margin: 35px 0 0;
+}
+
+/* =========================
+   BOTONES FINALES
+   ========================= */
+
+.juego-botones-finales {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 35px;
+}
+
+.juego-boton-final {
+    display: inline-block;
+    padding: 15px 24px;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.juego-boton-biblioteca {
+    background: white;
+    color: #8b7355;
+    border: 1px solid #d8cbbb;
+}
+
+.juego-boton-biblioteca:hover {
+    background: #f4efe6;
+}
+
+.juego-boton-experiencia {
+    background: #222222;
+    color: white;
+    border: 1px solid #222222;
+}
+
+.juego-boton-experiencia:hover {
+    background: #8b7355;
+    border-color: #8b7355;
+}
+
+@media (max-width: 600px) {
+
+    .pagina {
+        padding: 40px 18px 60px;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+
+    .bloque {
+        padding: 30px 25px;
+    }
+
+    .juego-pantalla {
+        padding: 35px 25px;
+    }
+
+    .juego-paso h3 {
+        font-size: 26px;
+    }
+
+    .juego-cabecera h2 {
+        font-size: 31px;
+    }
+
+    .juego-botones-finales {
+        flex-direction: column;
+    }
+
+    .juego-boton-final {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main class="pagina">
+
+    <a href="habitos.html" class="volver">
+        ← VOLVER
+    </a>
+
+    <p class="marca">CÓDIGO 03 · HÁBITOS</p>
+
+    <h1>Añadir un hábito</h1>
+
+    <p class="intro">
+        Los hábitos nuevos son los que te llevarán a tu nueva vida.
+    </p>
+
+
+    <!-- =========================
+         TEORÍA
+         ========================= -->
+
+    <section class="bloque">
+
+        <p class="bloque-etiqueta">PRIMERO ENTIENDE ESTO</p>
+
+        <h2>Añadir</h2>
+
+        <p>
+            Para añadir un hábito debes hacer todo lo contrario, la base está en la repetición de la acción por un tiempo.
+        </p>
+
+        <p>
+            Una vez que tu subconsciente lo haya aprendido, será automático.
+            Lo ideal es que no termine de ser automático, sino que lo hagas con amor e intención.
+        </p>
+
+        <p>
+            Porque los hábitos nuevos son los que te llevarán a tu nueva vida.
+        </p>
+
+    </section>
+
+
+    <section class="bloque">
+
+        <p class="bloque-etiqueta">ALGUNOS EJEMPLOS</p>
+
+        <div class="ejemplos">
+
+            <div class="ejemplo">GYM</div>
+            <div class="ejemplo">COMER BIEN</div>
+            <div class="ejemplo">LEER</div>
+
+        </div>
+
+    </section>
+
+
+    <section class="bloque">
+
+        <p class="bloque-etiqueta">NO OLVIDES ESTO</p>
+
+        <p>
+            Es muy importante también el entorno donde te encuentras.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         JUEGO
+         ========================= -->
+
+    <section class="juego">
+
+        <div class="juego-cabecera">
+
+            <p class="juego-etiqueta">AHORA TE TOCA A TI</p>
+
+            <h2>Construye tu nuevo hábito</h2>
+
+            <p>
+                No se trata solamente de elegir un hábito.
+                Se trata de empezar a construir la persona que quieres ser.
+            </p>
+
+        </div>
+
+
+        <div class="juego-pantalla">
+
+            <div class="juego-progreso">
+                <div class="juego-progreso-barra" id="progresoBarra"></div>
+            </div>
+
+
+            <!-- PASO 1 -->
+
+            <div class="juego-paso activo" id="paso1">
+
+                <div class="juego-numero">01 · ELIGE</div>
+
+                <h3>
+                    ¿Qué hábito quieres añadir a tu vida?
+                </h3>
+
+                <p>
+                    Elige uno. No intentes cambiarlo todo de golpe.
+                    Empieza por aquello que sabes que quieres incorporar.
+                </p>
+
+                <div class="juego-opciones">
+
+                    <button class="juego-opcion"
+                            onclick="elegirHabito(this, 'Gym')">
+                        GYM
+                    </button>
+
+                    <button class="juego-opcion"
+                            onclick="elegirHabito(this, 'Comer bien')">
+                        COMER BIEN
+                    </button>
+
+                    <button class="juego-opcion"
+                            onclick="elegirHabito(this, 'Leer')">
+                        LEER
+                    </button>
+
+                </div>
+
+                <p class="juego-error" id="error1">
+                    Elige un hábito para continuar.
+                </p>
+
+                <button class="juego-boton" onclick="siguiente(1)">
+                    CONTINUAR →
+                </button>
+
+            </div>
+
+
+            <!-- PASO 2 -->
+
+            <div class="juego-paso" id="paso2">
+
+                <div class="juego-numero">02 · CONCRETA</div>
+
+                <h3>
+                    Ahora conviértelo en una acción.
+                </h3>
+
+                <p>
+                    Un hábito se construye mediante la repetición de una acción.
+                    ¿Qué acción concreta vas a repetir?
+                </p>
+
+                <input
+                    type="text"
+                    id="accion"
+                    class="juego-input"
+                    placeholder="Ejemplo: ir al gym 30 minutos"
+                >
+
+                <p class="juego-error" id="error2">
+                    Escribe la acción que vas a repetir.
+                </p>
+
+                <button class="juego-boton" onclick="siguiente(2)">
+                    CONTINUAR →
+                </button>
+
+            </div>
+
+
+            <!-- PASO 3 -->
+
+            <div class="juego-paso" id="paso3">
+
+                <div class="juego-numero">03 · REPITE</div>
+
+                <h3>
+                    ¿Cuándo vas a hacerlo?
+                </h3>
+
+                <p>
+                    La repetición es la base.
+                    Decide cuándo vas a realizar esa acción para empezar a convertirla en parte de tu vida.
+                </p>
+
+                <input
+                    type="text"
+                    id="momento"
+                    class="juego-input"
+                    placeholder="Ejemplo: de lunes a viernes a las 18:00"
+                >
+
+                <p class="juego-error" id="error3">
+                    Escribe cuándo vas a hacerlo.
+                </p>
+
+                <button class="juego-boton" onclick="siguiente(3)">
+                    CONTINUAR →
+                </button>
+
+            </div>
+
+
+            <!-- PASO 4 -->
+
+            <div class="juego-paso" id="paso4">
+
+                <div class="juego-numero">04 · TU ENTORNO</div>
+
+                <h3>
+                    Mira a tu alrededor.
+                </h3>
+
+                <p>
+                    Es muy importante también el entorno donde te encuentras.
+                    ¿Qué puedes cambiar en tu entorno para ayudarte a mantener este nuevo hábito?
+                </p>
+
+                <textarea
+                    id="entorno"
+                    class="juego-textarea"
+                    placeholder="Escribe qué vas a cambiar, preparar o quitar de tu entorno..."
+                ></textarea>
+
+                <p class="juego-error" id="error4">
+                    Escribe qué vas a cambiar en tu entorno.
+                </p>
+
+                <button class="juego-boton" onclick="siguiente(4)">
+                    CONTINUAR →
+                </button>
+
+            </div>
+
+
+            <!-- PASO 5 -->
+
+            <div class="juego-paso" id="paso5">
+
+                <div class="juego-numero">05 · INTENCIÓN</div>
+
+                <h3>
+                    Hazlo con amor e intención.
+                </h3>
+
+                <p>
+                    No quiero que simplemente hagas una acción de manera automática.
+                    Quiero que entiendas para qué la estás haciendo.
+                </p>
+
+                <p>
+                    ¿Por qué quieres incorporar este hábito a tu nueva vida?
+                </p>
+
+                <textarea
+                    id="intencion"
+                    class="juego-textarea"
+                    placeholder="Escribe por qué este hábito es importante para ti..."
+                ></textarea>
+
+                <p class="juego-error" id="error5">
+                    Escribe tu intención.
+                </p>
+
+                <button class="juego-boton" onclick="siguiente(5)">
+                    CONTINUAR →
+                </button>
+
+            </div>
+
+
+            <!-- PASO 6 -->
+
+            <div class="juego-paso" id="paso6">
+
+                <div class="juego-numero">06 · DECISIÓN</div>
+
+                <h3>
+                    Ahora decide quién estás construyendo.
+                </h3>
+
+                <p>
+                    Los hábitos nuevos son los que te llevarán a tu nueva vida.
+                    Escribe una frase que quieras recordar cuando llegue el momento de hacerlo.
+                </p>
+
+                <input
+                    type="text"
+                    id="compromiso"
+                    class="juego-input"
+                    placeholder="Ejemplo: Yo soy una persona disciplinada..."
+                >
+
+                <p class="juego-error" id="error6">
+                    Escribe tu compromiso.
+                </p>
+
+                <button class="juego-boton" onclick="finalizarJuego()">
+                    TERMINAR →
+                </button>
+
+            </div>
+
+
+            <!-- RESULTADO -->
+
+            <div class="juego-resultado" id="resultado">
+
+                <div class="juego-numero">TU NUEVO HÁBITO</div>
+
+                <h3>
+                    Ya sabes qué vas a construir.
+                </h3>
+
+                <div class="resultado-caja">
+
+                    <div class="resultado-linea">
+
+                        <span class="resultado-label">
+                            HÁBITO
+                        </span>
+
+                        <div class="resultado-valor" id="resultadoHabito"></div>
+
+                    </div>
+
+
+                    <div class="resultado-linea">
+
+                        <span class="resultado-label">
+                            ACCIÓN
+                        </span>
+
+                        <div class="resultado-valor" id="resultadoAccion"></div>
+
+                    </div>
+
+
+                    <div class="resultado-linea">
+
+                        <span class="resultado-label">
+                            CUÁNDO
+                        </span>
+
+                        <div class="resultado-valor" id="resultadoMomento"></div>
+
+                    </div>
+
+
+                    <div class="resultado-linea">
+
+                        <span class="resultado-label">
+                            ENTORNO
+                        </span>
+
+                        <div class="resultado-valor" id="resultadoEntorno"></div>
+
+                    </div>
+
+
+                    <div class="resultado-linea">
+
+                        <span class="resultado-label">
+                            INTENCIÓN
+                        </span>
+
+                        <div class="resultado-valor" id="resultadoIntencion"></div>
+
+                    </div>
+
+
+                    <div class="resultado-linea">
+
+                        <span class="resultado-label">
+                            TU COMPROMISO
+                        </span>
+
+                        <div class="resultado-valor" id="resultadoCompromiso"></div>
+
+                    </div>
+
+                </div>
+
+
+                <p class="juego-frase-final">
+
+                    Los hábitos nuevos son los que te llevarán a tu nueva vida.<br><br>
+
+                    Hazlo con amor.<br>
+                    Hazlo con intención.
+
+                </p>
+
+
+                <div class="juego-botones-finales">
+
+                    <a href="index.html"
+                       class="juego-boton-final juego-boton-biblioteca">
+                        ← VOLVER A LA BIBLIOTECA
+                    </a>
+
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc32QrOhTtUkocA8lSOKA6OO2WcJZmlnBHZnZmxBAZYCGb0Wg/viewform?usp=publish-editor"
+                       class="juego-boton-final juego-boton-experiencia"
+                       target="_blank">
+                        CUÉNTAME TU EXPERIENCIA →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+/* =========================
+   VARIABLES
+   ========================= */
+
+let habitoElegido = "";
+
+
+/* =========================
+   ELEGIR HÁBITO
+   ========================= */
+
+function elegirHabito(boton, habito) {
+
+    document.querySelectorAll(".juego-opcion").forEach(function(opcion) {
+        opcion.classList.remove("seleccionada");
+    });
+
+    boton.classList.add("seleccionada");
+
+    habitoElegido = habito;
+
+    document.getElementById("error1").style.display = "none";
+}
+
+
+/* =========================
+   SIGUIENTE PASO
+   ========================= */
+
+function siguiente(numero) {
+
+    if (numero === 1 && habitoElegido === "") {
+
+        document.getElementById("error1").style.display = "block";
+
+        return;
+    }
+
+
+    if (numero === 2) {
+
+        const accion = document.getElementById("accion").value.trim();
+
+        if (accion === "") {
+
+            document.getElementById("error2").style.display = "block";
+
+            return;
+        }
+
+        document.getElementById("error2").style.display = "none";
+    }
+
+
+    if (numero === 3) {
+
+        const momento = document.getElementById("momento").value.trim();
+
+        if (momento === "") {
+
+            document.getElementById("error3").style.display = "block";
+
+            return;
+        }
+
+        document.getElementById("error3").style.display = "none";
+    }
+
+
+    if (numero === 4) {
+
+        const entorno = document.getElementById("entorno").value.trim();
+
+        if (entorno === "") {
+
+            document.getElementById("error4").style.display = "block";
+
+            return;
+        }
+
+        document.getElementById("error4").style.display = "none";
+    }
+
+
+    if (numero === 5) {
+
+        const intencion = document.getElementById("intencion").value.trim();
+
+        if (intencion === "") {
+
+            document.getElementById("error5").style.display = "block";
+
+            return;
+        }
+
+        document.getElementById("error5").style.display = "none";
+    }
+
+
+    document.getElementById("paso" + numero).classList.remove("activo");
+
+    document.getElementById("paso" + (numero + 1)).classList.add("activo");
+
+    actualizarProgreso(numero + 1);
+
+}
+
+
+/* =========================
+   PROGRESO
+   ========================= */
+
+function actualizarProgreso(paso) {
+
+    const porcentaje = ((paso - 1) / 6) * 100;
+
+    document.getElementById("progresoBarra").style.width = porcentaje + "%";
+
+}
+
+
+/* =========================
+   FINAL
+   ========================= */
+
+function finalizarJuego() {
+
+    const compromiso = document.getElementById("compromiso").value.trim();
+
+    if (compromiso === "") {
+
+        document.getElementById("error6").style.display = "block";
+
+        return;
+    }
+
+    document.getElementById("error6").style.display = "none";
+
+
+    document.getElementById("resultadoHabito").textContent =
+        habitoElegido;
+
+    document.getElementById("resultadoAccion").textContent =
+        document.getElementById("accion").value;
+
+    document.getElementById("resultadoMomento").textContent =
+        document.getElementById("momento").value;
+
+    document.getElementById("resultadoEntorno").textContent =
+        document.getElementById("entorno").value;
+
+    document.getElementById("resultadoIntencion").textContent =
+        document.getElementById("intencion").value;
+
+    document.getElementById("resultadoCompromiso").textContent =
+        compromiso;
+
+
+    document.getElementById("paso6").classList.remove("activo");
+
+    document.getElementById("resultado").style.display = "block";
+
+    document.getElementById("progresoBarra").style.width = "100%";
+
+    window.scrollTo({
+        top: document.querySelector(".juego").offsetTop,
+        behavior: "smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
