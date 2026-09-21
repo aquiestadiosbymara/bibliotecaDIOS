@@ -281,115 +281,78 @@ h1 {
     .reflexion h2 {
         font-size: 32px;
     }
-/* =========================
-   JUEGO DE LA VIDA
-========================= */
-
 .juego-inicio {
-    padding: 80px 20px 100px;
-    display: flex;
-    justify-content: center;
+    padding: 70px 0 20px;
 }
 
 .juego-tarjeta {
-    width: 100%;
-    max-width: 680px;
     background: #ffffff;
     border: 1px solid #e1d9cd;
-    padding: 65px 55px;
+    padding: 50px 40px;
     text-align: center;
-    box-sizing: border-box;
-    box-shadow: 0 18px 45px rgba(0,0,0,0.06);
+    max-width: 700px;
+    margin: 0 auto;
 }
 
-.juego-numero {
-    display: block;
+.juego-etiqueta {
     font-size: 11px;
     letter-spacing: 3px;
     color: #9a805c;
-    margin-bottom: 28px;
+    margin-bottom: 25px;
 }
 
 .juego-tarjeta h2 {
     font-family: Georgia, serif;
-    font-size: 48px;
+    font-size: 38px;
     font-weight: normal;
-    line-height: 1.05;
-    margin: 0;
-    color: #222222;
-}
-
-.juego-linea {
-    width: 45px;
-    height: 1px;
-    background: #d0ad70;
-    margin: 32px auto;
-}
-
-.juego-pregunta {
-    font-family: Georgia, serif;
-    font-size: 25px;
     margin: 0 0 20px;
-    color: #222222;
 }
 
-.juego-texto {
-    max-width: 500px;
-    margin: 0 auto 38px;
+.juego-tarjeta p {
+    max-width: 520px;
+    margin: 0 auto;
     color: #666666;
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.8;
 }
 
 .boton-juego {
+    display: block;
     width: 100%;
     max-width: 300px;
-    padding: 20px 30px;
+    margin: 35px auto 0;
+    padding: 18px 25px;
     background: #222222;
     color: #ffffff;
     border: none;
-    font-size: 13px;
-    letter-spacing: 3px;
+    font-size: 12px;
+    letter-spacing: 2px;
     cursor: pointer;
-    transition: 0.3s;
 }
 
-.boton-juego:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
-
-.boton-juego strong {
-    margin-left: 18px;
+.boton-juego span {
+    margin-left: 15px;
     color: #d0ad70;
-    font-size: 18px;
-    font-weight: normal;
 }
 
 @media (max-width: 600px) {
 
     .juego-inicio {
-        padding: 60px 15px 80px;
+        padding-top: 50px;
     }
 
     .juego-tarjeta {
-        padding: 50px 25px;
+        padding: 40px 25px;
     }
 
     .juego-tarjeta h2 {
-        font-size: 38px;
-    }
-
-    .juego-pregunta {
-        font-size: 22px;
+        font-size: 32px;
     }
 
     .boton-juego {
         max-width: none;
     }
 }
-}
-
 </style>
 
 </head>
@@ -602,40 +565,30 @@ h1 {
         </p>
 
     </section>
-
-
-   <!-- JUEGO DE LA VIDA -->
+<!-- JUEGO DE LA VIDA -->
 
 <section class="juego-inicio">
 
     <div class="juego-tarjeta">
 
-        <span class="juego-numero">TU SIGUIENTE PASO</span>
+        <div class="juego-etiqueta">
+            EL JUEGO DE LA VIDA
+        </div>
 
-        <h2>EL JUEGO<br>DE LA VIDA</h2>
+        <h2>¿Estás preparada?</h2>
 
-        <div class="juego-linea"></div>
-
-        <p class="juego-pregunta">
-            ¿Estás preparada?
-        </p>
-
-        <p class="juego-texto">
+        <p>
             Vamos a eliminar un hábito.
             Elige una cosa que repites automáticamente
             y empieza el juego.
         </p>
 
         <button class="boton-juego" onclick="empezarJuego()">
-            <span>EMPECEMOS</span>
-            <strong>↓</strong>
+            EMPECEMOS
+            <span>↓</span>
         </button>
 
     </div>
-
-</section>
-
-<section id="juego-vida" style="display:none;">
 
 </section>
 </main>
