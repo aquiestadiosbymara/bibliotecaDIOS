@@ -495,6 +495,1154 @@ h1 {
         </p>
 
     </section>
+    <!-- =========================
+     EL JUEGO DE LA VIDA
+========================= -->
+
+<section id="juego-vida">
+
+    <!-- PORTADA DEL JUEGO -->
+
+    <div class="vida-portada" id="vidaPortada">
+
+        <div class="vida-etiqueta">
+            EL CÓDIGO DE LOS HÁBITOS
+        </div>
+
+        <h2>
+            El Juego<br>
+            de la Vida
+        </h2>
+
+        <p>
+            ¿Estás lista para empezar tu Juego de la Vida?
+        </p>
+
+        <button class="vida-boton" onclick="empezarJuego()">
+            EMPEZAR
+            <span>→</span>
+        </button>
+
+    </div>
+
+
+    <!-- JUEGO -->
+
+    <div class="vida-juego" id="vidaJuego">
+
+        <!-- PROGRESO -->
+
+        <div class="vida-progreso">
+
+            <div class="vida-progreso-texto">
+                <span id="vidaNumero">01 / 06</span>
+                <span>EL JUEGO DE LA VIDA</span>
+            </div>
+
+            <div class="vida-linea">
+                <div class="vida-barra" id="vidaBarra"></div>
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             PASO 1
+        ========================= -->
+
+        <article class="vida-paso activo" id="vidaPaso1">
+
+            <div class="vida-numero">
+                01
+            </div>
+
+            <h2>
+                ¿Qué hábito<br>
+                quieres eliminar?
+            </h2>
+
+            <p>
+                Un hábito es una simple acción que repites diariamente
+                de manera automática.
+            </p>
+
+            <div class="vida-campo">
+
+                <label>
+                    ESCRÍBELO
+                </label>
+
+                <textarea
+                    id="vidaHabito"
+                    placeholder="Escribe aquí el hábito que has decidido eliminar..."
+                ></textarea>
+
+            </div>
+
+            <button class="vida-boton" onclick="vidaSiguiente(2)">
+                CONTINUAR
+                <span>→</span>
+            </button>
+
+        </article>
+
+
+        <!-- =========================
+             PASO 2
+        ========================= -->
+
+        <article class="vida-paso" id="vidaPaso2">
+
+            <div class="vida-numero">
+                02
+            </div>
+
+            <h2>
+                Escucha<br>
+                la voz
+            </h2>
+
+            <p>
+                Muchas veces no es el acto lo primero que aparece.
+                Primero aparece el pensamiento.
+            </p>
+
+            <div class="vida-destacado">
+                «Venga, una más...»
+            </div>
+
+            <p>
+                Esa voz te lleva a realizar el acto de manera automática.
+                Pero esa voz la puedes eliminar.
+            </p>
+
+            <div class="vida-pregunta">
+
+                <p>
+                    ¿Qué vas a hacer con esa voz?
+                </p>
+
+                <div class="vida-opciones">
+
+                    <button
+                        class="vida-opcion"
+                        onclick="elegirVoz(this, 'alimentar')">
+
+                        <strong>
+                            ALIMENTARLA
+                        </strong>
+
+                        <span>
+                            Dejarme llevar por el impulso.
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="vida-opcion"
+                        onclick="elegirVoz(this, 'eliminar')">
+
+                        <strong>
+                            ELIMINARLA
+                        </strong>
+
+                        <span>
+                            Tomar una decisión firme.
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div
+                class="vida-mensaje"
+                id="mensajeVoz">
+            </div>
+
+            <button
+                class="vida-boton oculto"
+                id="botonVoz"
+                onclick="vidaSiguiente(3)">
+
+                CONTINUAR
+                <span>→</span>
+
+            </button>
+
+        </article>
+
+
+        <!-- =========================
+             PASO 3
+        ========================= -->
+
+        <article class="vida-paso" id="vidaPaso3">
+
+            <div class="vida-numero">
+                03
+            </div>
+
+            <h2>
+                No te resistas
+            </h2>
+
+            <p>
+                Porque cuanto más resistes, más atención le pones.
+                Cuanta más atención le pones a algo, más se expande la energía.
+            </p>
+
+            <div class="vida-destacado">
+
+                Tu atención está en resistirte a X.
+                <br>
+                Por lo tanto, lo que atraes es esa X.
+
+            </div>
+
+            <p>
+                Aquí no se trata de estar todo el día pensando en aquello
+                que quieres evitar.
+            </p>
+
+            <p>
+                Se trata de tomar una decisión y cambiar tu atención.
+            </p>
+
+            <div class="vida-pregunta">
+
+                <p>
+                    ¿Dónde decides poner tu atención ahora?
+                </p>
+
+                <div class="vida-opciones">
+
+                    <button
+                        class="vida-opcion"
+                        onclick="elegirAtencion(this, false)">
+
+                        <strong>
+                            EN RESISTIRME
+                        </strong>
+
+                        <span>
+                            Pensar constantemente en no hacerlo.
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="vida-opcion"
+                        onclick="elegirAtencion(this, true)">
+
+                        <strong>
+                            EN MI NUEVA DECISIÓN
+                        </strong>
+
+                        <span>
+                            Dejar de alimentar aquello que quiero eliminar.
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div
+                class="vida-mensaje"
+                id="mensajeAtencion">
+            </div>
+
+            <button
+                class="vida-boton oculto"
+                id="botonAtencion"
+                onclick="vidaSiguiente(4)">
+
+                CONTINUAR
+                <span>→</span>
+
+            </button>
+
+        </article>
+
+
+        <!-- =========================
+             PASO 4
+        ========================= -->
+
+        <article class="vida-paso" id="vidaPaso4">
+
+            <div class="vida-numero">
+                04
+            </div>
+
+            <h2>
+                Limpia<br>
+                tu entorno
+            </h2>
+
+            <p>
+                Elimina de tu alrededor todo lo que te recuerde
+                aquello que has decidido dejar atrás.
+            </p>
+
+            <p>
+                Ahora escribe qué necesitas sacar de tu entorno.
+            </p>
+
+            <div class="vida-campo">
+
+                <label>
+                    MI ENTORNO
+                </label>
+
+                <textarea
+                    id="vidaEntorno"
+                    placeholder="¿Qué vas a eliminar de tu alrededor?"
+                ></textarea>
+
+            </div>
+
+            <button class="vida-boton" onclick="vidaSiguiente(5)">
+                CONTINUAR
+                <span>→</span>
+            </button>
+
+        </article>
+
+
+        <!-- =========================
+             PASO 5
+        ========================= -->
+
+        <article class="vida-paso" id="vidaPaso5">
+
+            <div class="vida-numero">
+                05
+            </div>
+
+            <h2>
+                No caer<br>
+                es una opción
+            </h2>
+
+            <p>
+                Ya has tomado una decisión.
+            </p>
+
+            <div class="vida-destacado grande">
+                Caer no es una opción.
+            </div>
+
+            <p>
+                No necesitas volver a negociar con aquello
+                que has decidido eliminar.
+            </p>
+
+            <div class="vida-pregunta">
+
+                <p>
+                    Cuando vuelva el impulso, ¿qué vas a recordar?
+                </p>
+
+                <div class="vida-opciones">
+
+                    <button
+                        class="vida-opcion"
+                        onclick="elegirDecision(this, false)">
+
+                        <strong>
+                            «QUIZÁ UNA VEZ...»
+                        </strong>
+
+                        <span>
+                            Volver a negociar con mi decisión.
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="vida-opcion"
+                        onclick="elegirDecision(this, true)">
+
+                        <strong>
+                            «YA HE DECIDIDO»
+                        </strong>
+
+                        <span>
+                            Mantener mi compromiso.
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div
+                class="vida-mensaje"
+                id="mensajeDecision">
+            </div>
+
+            <button
+                class="vida-boton oculto"
+                id="botonDecision"
+                onclick="vidaSiguiente(6)">
+
+                CONTINUAR
+                <span>→</span>
+
+            </button>
+
+        </article>
+
+
+        <!-- =========================
+             PASO 6
+        ========================= -->
+
+        <article class="vida-paso" id="vidaPaso6">
+
+            <div class="vida-numero">
+                06
+            </div>
+
+            <h2>
+                Tú ya<br>
+                lo has logrado
+            </h2>
+
+            <p>
+                Tienes que decirte a ti misma que tú ya lo has logrado.
+            </p>
+
+            <div class="vida-destacado">
+                Confía en ti.
+            </div>
+
+            <p>
+                Tú tienes control de tu mente.
+                Tú tienes control de tu cuerpo.
+            </p>
+
+            <div class="vida-campo">
+
+                <label>
+                    MI COMPROMISO
+                </label>
+
+                <textarea
+                    id="vidaCompromiso"
+                    placeholder="Escribe tu compromiso contigo misma..."
+                ></textarea>
+
+            </div>
+
+            <button class="vida-boton" onclick="terminarVida()">
+                TERMINAR MI JUEGO
+                <span>→</span>
+            </button>
+
+        </article>
+
+
+        <!-- =========================
+             FINAL
+        ========================= -->
+
+        <article class="vida-final" id="vidaFinal">
+
+            <div class="vida-numero">
+                JUEGO COMPLETADO
+            </div>
+
+            <h2>
+                Has tomado<br>
+                una decisión.
+            </h2>
+
+            <p>
+                Ahora empieza lo importante:
+                vivirla.
+            </p>
+
+            <div class="vida-resumen">
+
+                <div class="vida-resumen-bloque">
+
+                    <span>
+                        HÁBITO QUE HE DECIDIDO ELIMINAR
+                    </span>
+
+                    <p id="resumenVidaHabito"></p>
+
+                </div>
+
+
+                <div class="vida-resumen-bloque">
+
+                    <span>
+                        LO QUE VOY A ELIMINAR DE MI ENTORNO
+                    </span>
+
+                    <p id="resumenVidaEntorno"></p>
+
+                </div>
+
+
+                <div class="vida-resumen-bloque">
+
+                    <span>
+                        MI COMPROMISO
+                    </span>
+
+                    <p id="resumenVidaCompromiso"></p>
+
+                </div>
+
+            </div>
+
+            <div class="vida-final-frase">
+                Tú tienes control de tu mente.<br>
+                Tú tienes control de tu cuerpo.
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<style>
+
+/* =========================
+   EL JUEGO DE LA VIDA
+========================= */
+
+#juego-vida {
+    margin-top: 90px;
+    margin-bottom: 80px;
+}
+
+
+/* PORTADA */
+
+.vida-portada {
+    background: #ffffff;
+    border: 1px solid #e1d9cd;
+    padding: 70px 45px;
+    text-align: center;
+}
+
+.vida-etiqueta {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #9a805c;
+    margin-bottom: 25px;
+}
+
+.vida-portada h2 {
+    font-family: Georgia, serif;
+    font-size: 58px;
+    font-weight: normal;
+    line-height: 1.05;
+    margin: 0 0 30px 0;
+}
+
+.vida-portada p {
+    color: #666666;
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+
+/* BOTONES */
+
+.vida-boton {
+    border: none;
+    background: #222222;
+    color: #ffffff;
+    padding: 17px 30px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.vida-boton span {
+    margin-left: 12px;
+    color: #d0ad70;
+}
+
+.vida-boton:hover {
+    background: #8b7355;
+    transform: translateY(-2px);
+}
+
+
+/* JUEGO */
+
+.vida-juego {
+    display: none;
+}
+
+.vida-juego.visible {
+    display: block;
+}
+
+
+/* PROGRESO */
+
+.vida-progreso {
+    margin-bottom: 55px;
+}
+
+.vida-progreso-texto {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #8b7355;
+    margin-bottom: 12px;
+}
+
+.vida-linea {
+    width: 100%;
+    height: 3px;
+    background: #ded5c8;
+}
+
+.vida-barra {
+    width: 16.66%;
+    height: 100%;
+    background: #8b7355;
+    transition: width .5s ease;
+}
+
+
+/* PASOS */
+
+.vida-paso {
+    display: none;
+    animation: vidaAparecer .5s ease;
+}
+
+.vida-paso.activo {
+    display: block;
+}
+
+@keyframes vidaAparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* TEXTOS */
+
+.vida-numero {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #9a805c;
+    margin-bottom: 20px;
+}
+
+.vida-paso h2 {
+    font-family: Georgia, serif;
+    font-size: 48px;
+    font-weight: normal;
+    line-height: 1.1;
+    margin: 0 0 30px 0;
+}
+
+.vida-paso > p {
+    max-width: 650px;
+    color: #555555;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
+
+
+/* DESTACADOS */
+
+.vida-destacado {
+    background: #f4efe6;
+    border-left: 3px solid #b89a6a;
+    padding: 25px;
+    margin: 35px 0;
+    font-family: Georgia, serif;
+    color: #444444;
+    font-size: 23px;
+    line-height: 1.5;
+}
+
+.vida-destacado.grande {
+    font-size: 29px;
+    text-align: center;
+}
+
+
+/* CAMPOS */
+
+.vida-campo {
+    margin: 40px 0 25px 0;
+}
+
+.vida-campo label {
+    display: block;
+    color: #8b7355;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.vida-campo textarea {
+    width: 100%;
+    min-height: 130px;
+    resize: vertical;
+    border: 1px solid #ded5c8;
+    background: #ffffff;
+    padding: 18px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    color: #333333;
+    outline: none;
+}
+
+.vida-campo textarea:focus {
+    border-color: #b89a6a;
+}
+
+
+/* PREGUNTAS */
+
+.vida-pregunta {
+    margin-top: 40px;
+    padding-top: 35px;
+    border-top: 1px solid #ded5c8;
+}
+
+.vida-pregunta > p {
+    color: #555555;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+
+/* OPCIONES */
+
+.vida-opciones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.vida-opcion {
+    background: #ffffff;
+    border: 1px solid #ded5c8;
+    padding: 25px;
+    text-align: left;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.vida-opcion strong {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #222222;
+    margin-bottom: 10px;
+}
+
+.vida-opcion span {
+    display: block;
+    color: #777777;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.vida-opcion:hover {
+    border-color: #b89a6a;
+    transform: translateY(-2px);
+}
+
+.vida-opcion.seleccionada {
+    border-color: #8b7355;
+    background: #f4efe6;
+}
+
+
+/* MENSAJES */
+
+.vida-mensaje {
+    min-height: 25px;
+    margin: 20px 0;
+    color: #8b7355;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+
+/* OCULTO */
+
+.oculto {
+    display: none;
+}
+
+
+/* FINAL */
+
+.vida-final {
+    display: none;
+    animation: vidaAparecer .7s ease;
+    text-align: center;
+}
+
+.vida-final.activo {
+    display: block;
+}
+
+.vida-final h2 {
+    font-family: Georgia, serif;
+    font-size: 55px;
+    font-weight: normal;
+    line-height: 1.05;
+    margin: 0 0 25px 0;
+}
+
+.vida-final > p {
+    color: #666666;
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 45px;
+}
+
+
+/* RESUMEN */
+
+.vida-resumen {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.vida-resumen-bloque {
+    background: #ffffff;
+    border: 1px solid #e1d9cd;
+    padding: 25px;
+    margin-bottom: 15px;
+}
+
+.vida-resumen-bloque span {
+    display: block;
+    color: #9a805c;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.vida-resumen-bloque p {
+    color: #444444;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.vida-final-frase {
+    max-width: 600px;
+    margin: 50px auto 0;
+    padding-top: 35px;
+    border-top: 1px solid #ded5c8;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    line-height: 1.6;
+    color: #8b7355;
+}
+
+
+/* MÓVIL */
+
+@media (max-width: 600px) {
+
+    .vida-portada {
+        padding: 50px 25px;
+    }
+
+    .vida-portada h2 {
+        font-size: 43px;
+    }
+
+    .vida-paso h2 {
+        font-size: 37px;
+    }
+
+    .vida-opciones {
+        grid-template-columns: 1fr;
+    }
+
+    .vida-destacado {
+        font-size: 20px;
+    }
+
+    .vida-final h2 {
+        font-size: 42px;
+    }
+
+}
+
+</style>
+
+
+<script>
+
+/* =========================
+   VARIABLES
+========================= */
+
+let vidaPasoActual = 1;
+
+
+/* =========================
+   EMPEZAR
+========================= */
+
+function empezarJuego() {
+
+    document.getElementById("vidaPortada").style.display = "none";
+
+    document.getElementById("vidaJuego").classList.add("visible");
+
+    mostrarPasoVida(1);
+
+}
+
+
+/* =========================
+   MOSTRAR PASO
+========================= */
+
+function mostrarPasoVida(numero) {
+
+    document.querySelectorAll(".vida-paso").forEach(function(paso) {
+        paso.classList.remove("activo");
+    });
+
+    const paso = document.getElementById("vidaPaso" + numero);
+
+    if (paso) {
+        paso.classList.add("activo");
+    }
+
+    vidaPasoActual = numero;
+
+    const porcentaje = (numero / 6) * 100;
+
+    document.getElementById("vidaBarra").style.width =
+        porcentaje + "%";
+
+    document.getElementById("vidaNumero").textContent =
+        String(numero).padStart(2, "0") + " / 06";
+
+    window.scrollTo({
+        top: document.getElementById("juego-vida").offsetTop - 30,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================
+   SIGUIENTE
+========================= */
+
+function vidaSiguiente(numero) {
+
+    mostrarPasoVida(numero);
+
+}
+
+
+/* =========================
+   VOZ
+========================= */
+
+function elegirVoz(elemento, respuesta) {
+
+    document.querySelectorAll("#vidaPaso2 .vida-opcion").forEach(function(opcion) {
+        opcion.classList.remove("seleccionada");
+    });
+
+    elemento.classList.add("seleccionada");
+
+    const mensaje = document.getElementById("mensajeVoz");
+    const boton = document.getElementById("botonVoz");
+
+    if (respuesta === "eliminar") {
+
+        mensaje.innerHTML =
+            "Has tomado una decisión firme. Esa voz no tiene por qué dirigir tus actos.";
+
+        boton.classList.remove("oculto");
+
+    } else {
+
+        mensaje.innerHTML =
+            "Si alimentas el impulso, sigues repitiendo el mismo patrón. Vuelve a mirar tu decisión.";
+
+        boton.classList.add("oculto");
+
+    }
+
+}
+
+
+/* =========================
+   ATENCIÓN
+========================= */
+
+function elegirAtencion(elemento, correcta) {
+
+    document.querySelectorAll("#vidaPaso3 .vida-opcion").forEach(function(opcion) {
+        opcion.classList.remove("seleccionada");
+    });
+
+    elemento.classList.add("seleccionada");
+
+    const mensaje = document.getElementById("mensajeAtencion");
+    const boton = document.getElementById("botonAtencion");
+
+    if (correcta) {
+
+        mensaje.innerHTML =
+            "Tu atención deja de estar en aquello que quieres eliminar y pasa a tu nueva decisión.";
+
+        boton.classList.remove("oculto");
+
+    } else {
+
+        mensaje.innerHTML =
+            "Observa lo que estás haciendo: sigues poniendo tu atención en aquello que quieres eliminar.";
+
+        boton.classList.add("oculto");
+
+    }
+
+}
+
+
+/* =========================
+   DECISIÓN
+========================= */
+
+function elegirDecision(elemento, correcta) {
+
+    document.querySelectorAll("#vidaPaso5 .vida-opcion").forEach(function(opcion) {
+        opcion.classList.remove("seleccionada");
+    });
+
+    elemento.classList.add("seleccionada");
+
+    const mensaje = document.getElementById("mensajeDecision");
+    const boton = document.getElementById("botonDecision");
+
+    if (correcta) {
+
+        mensaje.innerHTML =
+            "No necesitas volver a negociar. Ya has decidido.";
+
+        boton.classList.remove("oculto");
+
+    } else {
+
+        mensaje.innerHTML =
+            "Recuerda: caer no es una opción. Vuelve a tu decisión.";
+
+        boton.classList.add("oculto");
+
+    }
+
+}
+
+
+/* =========================
+   TERMINAR
+========================= */
+
+function terminarVida() {
+
+    const habito =
+        document.getElementById("vidaHabito").value.trim();
+
+    const entorno =
+        document.getElementById("vidaEntorno").value.trim();
+
+    const compromiso =
+        document.getElementById("vidaCompromiso").value.trim();
+
+    if (habito === "") {
+
+        alert("Primero escribe el hábito que has decidido eliminar.");
+
+        mostrarPasoVida(1);
+
+        return;
+
+    }
+
+    if (compromiso === "") {
+
+        alert("Escribe tu compromiso antes de terminar.");
+
+        return;
+
+    }
+
+    document.querySelectorAll(".vida-paso").forEach(function(paso) {
+        paso.classList.remove("activo");
+    });
+
+    document.getElementById("vidaFinal").classList.add("activo");
+
+    document.getElementById("resumenVidaHabito").textContent =
+        habito;
+
+    document.getElementById("resumenVidaEntorno").textContent =
+        entorno || "Has decidido revisar tu entorno.";
+
+    document.getElementById("resumenVidaCompromiso").textContent =
+        compromiso;
+
+    document.getElementById("vidaNumero").textContent =
+        "✓";
+
+    document.getElementById("vidaBarra").style.width =
+        "100%";
+
+    window.scrollTo({
+        top: document.getElementById("juego-vida").offsetTop - 30,
+        behavior: "smooth"
+    });
+
+}
+
+</script>
 </main>
 
 
