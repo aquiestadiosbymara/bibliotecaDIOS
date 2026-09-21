@@ -498,7 +498,15 @@
             .textContent = "COMPLETADO";
 
     }
+if (localStorage.getItem("codigo03Completado") === "true") {
 
+    document.getElementById("paso03")
+        .classList.add("completado");
+
+    document.getElementById("estado03")
+        .textContent = "COMPLETADO";
+
+}
 </script>
     <script>
 
