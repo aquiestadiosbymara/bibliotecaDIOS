@@ -1,1 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Eliminar un hábito · Código de los hábitos</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f4efe6;
+    color: #222222;
+    font-family: Arial, sans-serif;
+}
+
+.pagina {
+    max-width: 900px;
+    margin: auto;
+    padding: 60px 25px 90px 25px;
+}
+
+.volver {
+    display: inline-block;
+    margin-bottom: 70px;
+    color: #8b7355;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.marca {
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: #8b7355;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 58px;
+    font-weight: normal;
+    line-height: 1.1;
+    text-align: center;
+    margin: 0 auto 25px auto;
+}
+
+.intro {
+    max-width: 650px;
+    margin: 0 auto 70px auto;
+    text-align: center;
+    color: #666666;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.bloque {
+    background: #ffffff;
+    border: 1px solid #e1d9cd;
+    padding: 45px;
+    margin-bottom: 30px;
+}
+
+.bloque h2 {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    font-weight: normal;
+    margin: 0 0 25px 0;
+}
+
+.bloque p {
+    color: #555555;
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 0 0 22px 0;
+}
+
+.destacado {
+    margin: 35px 0;
+    padding: 25px;
+    background: #f4efe6;
+    border-left: 3px solid #b89a6a;
+    font-family: Georgia, serif;
+    font-size: 23px;
+    line-height: 1.5;
+}
+
+.lista-numerada {
+    padding-left: 25px;
+    margin: 25px 0;
+}
+
+.lista-numerada li {
+    margin-bottom: 18px;
+    color: #555555;
+    line-height: 1.7;
+}
+
+.pasos {
+    display: grid;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.paso {
+    background: #f4efe6;
+    border: 1px solid #e1d9cd;
+    padding: 25px 30px;
+}
+
+.paso-numero {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #9a805c;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.paso h3 {
+    font-family: Georgia, serif;
+    font-size: 23px;
+    font-weight: normal;
+    margin: 0 0 12px 0;
+}
+
+.paso p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.reflexion {
+    text-align: center;
+    margin: 80px auto 50px auto;
+    max-width: 650px;
+}
+
+.reflexion h2 {
+    font-family: Georgia, serif;
+    font-size: 38px;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+.reflexion p {
+    color: #666666;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.boton-final {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 0 auto;
+    padding: 17px 30px;
+    background: #222222;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.boton-final span {
+    margin-left: 12px;
+    color: #d0ad70;
+}
+
+.footer {
+    text-align: center;
+    padding: 70px 20px 35px 20px;
+    border-top: 1px solid #ddd3c5;
+    margin-top: 80px;
+}
+
+.footer-titulo {
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.footer-by {
+    margin-top: 10px;
+    color: #9a805c;
+    font-family: cursive;
+    font-size: 20px;
+}
+
+.footer-redes {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    margin: 30px 0;
+}
+
+.footer-redes a {
+    color: #222222;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-redes svg {
+    width: 21px;
+    height: 21px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+}
+
+.footer-redes .footer-escuela {
+    font-size: 21px;
+}
+
+.footer-politicas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px 25px;
+    margin: 25px auto;
+}
+
+.footer-politicas a {
+    color: #777777;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.footer-separador {
+    height: 1px;
+    background: #ddd3c5;
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+.footer-copy {
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: #999999;
+}
+
+@media (max-width: 600px) {
+
+    .pagina {
+        padding: 40px 20px 70px 20px;
+    }
+
+    .volver {
+        margin-bottom: 50px;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    .intro {
+        font-size: 16px;
+        margin-bottom: 50px;
+    }
+
+    .bloque {
+        padding: 30px 25px;
+    }
+
+    .bloque h2 {
+        font-size: 29px;
+    }
+
+    .destacado {
+        font-size: 20px;
+    }
+
+    .reflexion h2 {
+        font-size: 32px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main class="pagina">
+
+    <a href="habitos.html" class="volver">← VOLVER</a>
+
+    <div class="marca">CÓDIGO 03 · HÁBITOS</div>
+
+    <h1>Eliminar un hábito</h1>
+
+    <p class="intro">
+        Antes de intentar construir una nueva vida, quizá primero tengas que
+        mirar aquello que estás repitiendo y que ya no quieres seguir llevando contigo.
+    </p>
+
+
+    <section class="bloque">
+
+        <h2>Primero entiende esto</h2>
+
+        <p>
+            Sinceramente, creo que debes entender una cosa todavía más importante:
+            un hábito es una simple acción que repites diariamente de manera automática.
+        </p>
+
+        <p>
+            Y cuando entiendes esto, empiezas a darte cuenta de que muchas cosas
+            que haces no las decides realmente cada día. Simplemente las repites.
+        </p>
+
+    </section>
+
+
+    <section class="bloque">
+
+        <h2>Yo lo utilicé para dejar un vicio</h2>
+
+        <p>
+            Yo utilicé esto para dejar mi vicio de fumar y, entre otras cosas,
+            primero entendí una realidad:
+        </p>
+
+        <p>
+            La persona que fuma o bebe muchas veces lo hace porque existe un
+            debilitamiento mental. No es capaz de controlar un impulso mental.
+            Se deja llevar por ese pensamiento que le dice:
+        </p>
+
+        <div class="destacado">
+            «Venga, una clara solamente... una más...»
+        </div>
+
+        <p>
+            Y si te digo la verdad, esa voz que te dice eso la puedes eliminar,
+            pero debes tomar la decisión de hacerlo.
+        </p>
+
+        <p>
+            Una decisión firme y un compromiso vital.
+        </p>
+
+    </section>
+
+
+    <section class="bloque">
+
+        <h2>¿Por qué decidir eliminarlo?</h2>
+
+        <ol class="lista-numerada">
+
+            <li>
+                Porque cualquier vicio mata tu cuerpo, el templo de Dios.
+            </li>
+
+            <li>
+                Porque te estás dejando controlar por el enemigo.
+            </li>
+
+        </ol>
+
+    </section>
+
+
+    <section class="bloque">
+
+        <h2>¿Cómo dejo de realizar ese acto de manera automática?</h2>
+
+        <div class="pasos">
+
+            <div class="paso">
+
+                <span class="paso-numero">01</span>
+
+                <h3>Déjalo de hacer irresistible</h3>
+
+                <p>
+                    Debes inducirte el pensamiento de rechazo hacia ese acto.
+                    Yo antes veía un vapeador o un cigarro y no podía resistir
+                    sentir un deseo, una atracción.
+                </p>
+
+                <p>
+                    Y de un día para otro tomé la decisión. Cada vez que lo veía,
+                    inducía mi rechazo.
+                </p>
+
+            </div>
+
+
+            <div class="paso">
+
+                <span class="paso-numero">02</span>
+
+                <h3>No te resistas</h3>
+
+                <p>
+                    Porque cuanto más resistes, más atención le pones.
+                    Y cuanta más atención le pones a algo, más se expande la energía.
+                </p>
+
+                <p>
+                    Es decir: tu atención está en resistirte a X y, por lo tanto,
+                    lo que atraes es esa X.
+                </p>
+
+            </div>
+
+
+            <div class="paso">
+
+                <span class="paso-numero">03</span>
+
+                <h3>Elimina de tu alrededor todo lo que te lo recuerde</h3>
+
+                <p>
+                    Si quieres dejar un hábito, no sigas rodeándote constantemente
+                    de aquello que te lleva hacia él.
+                </p>
+
+            </div>
+
+
+            <div class="paso">
+
+                <span class="paso-numero">04</span>
+
+                <h3>No caigas</h3>
+
+                <p>
+                    Caer no es una opción.
+                </p>
+
+            </div>
+
+
+            <div class="paso">
+
+                <span class="paso-numero">05</span>
+
+                <h3>Di que ya lo has logrado</h3>
+
+                <p>
+                    Tienes que decirte a ti misma que tú ya lo has logrado.
+                </p>
+
+            </div>
+
+
+            <div class="paso">
+
+                <span class="paso-numero">06</span>
+
+                <h3>Confía en ti</h3>
+
+                <p>
+                    Confía en ti y en la decisión que has tomado.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="bloque">
+
+        <h2>Otro ejemplo: comer mal</h2>
+
+        <p>
+            Si ponemos otro ejemplo, como comer mal, no te resistas a la comida basura.
+            Haces exactamente lo mismo.
+        </p>
+
+        <p>
+            Aquí no hay «de poco en poco». Eso no existe.
+        </p>
+
+        <div class="destacado">
+            Tú tienes control de tu mente.<br>
+            Tú tienes control de tu cuerpo.
+        </div>
+
+        <p>
+            Cambias, aceptas e incluyes hábitos buenos.
+        </p>
+
+    </section>
+
+
+    <section class="reflexion">
+
+        <h2>Ahora te toca a ti</h2>
+
+        <p>
+            Mira tu vida con honestidad.
+            ¿Qué hábito estás repitiendo de manera automática
+            y sabes que ya no quieres seguir llevando contigo?
+        </p>
+
+        <a href="habitos-anadir.html" class="boton-final">
+            QUIERO CONSTRUIR NUEVOS HÁBITOS
+            <span>→</span>
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer class="footer">
+
+    <div class="footer-marca">
+
+        <div class="footer-titulo">
+            BIBLIOTECA DE RECURSOS
+        </div>
+
+        <div class="footer-by">
+            By Mara Triguero
+        </div>
+
+    </div>
+
+
+    <div class="footer-redes">
+
+        <a href="https://www.instagram.com/maratriguero_/"
+           target="_blank"
+           aria-label="Instagram">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4.2"></circle>
+                <circle cx="17.4" cy="6.6" r="1"></circle>
+            </svg>
+
+        </a>
+
+
+        <a href="https://www.tiktok.com/@maratriguero_"
+           target="_blank"
+           aria-label="TikTok">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15 3v11.2a4.8 4.8 0 1 1-4.8-4.8"></path>
+                <path d="M15 3c.4 2.4 1.8 4 4 4"></path>
+            </svg>
+
+        </a>
+
+
+        <a href="https://www.youtube.com/@MaraTriguero"
+           target="_blank"
+           aria-label="YouTube">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2.5" y="5.5" width="19" height="13" rx="4"></rect>
+                <path d="M10 9l5 3-5 3z"></path>
+            </svg>
+
+        </a>
+
+
+        <a href="https://aquiestadiosbymara.github.io/aqu--esta-dios/"
+           target="_blank"
+           aria-label="Escuela Aquí Está Dios">
+
+            <span class="footer-escuela">🌈</span>
+
+        </a>
+
+    </div>
+
+
+    <nav class="footer-politicas">
+
+        <a href="aviso-legal.html">
+            Aviso legal
+        </a>
+
+        <a href="politica-privacidad.html">
+            Política de privacidad
+        </a>
+
+        <a href="condiciones-servicio.html">
+            Condiciones de servicio
+        </a>
+
+        <a href="politica-cookies.html">
+            Política de cookies
+        </a>
+
+    </nav>
+
+
+    <div class="footer-separador"></div>
+
+
+    <div class="footer-copy">
+        © 2026 · Recursos gratuitos · Todos los derechos reservados
+    </div>
+
+</footer>
+
+</body>
+</html>
