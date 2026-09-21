@@ -282,7 +282,58 @@ h1 {
         font-size: 32px;
     }
 }
+.juego-botones-finales {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 35px;
+}
 
+.juego-boton-final {
+    display: inline-block;
+    padding: 15px 24px;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.juego-boton-biblioteca {
+    background: white;
+    color: #8b7355;
+    border: 1px solid #d8cbbb;
+}
+
+.juego-boton-biblioteca:hover {
+    background: #f4efe6;
+}
+
+.juego-boton-experiencia {
+    background: #222222;
+    color: white;
+    border: 1px solid #222222;
+}
+
+.juego-boton-experiencia:hover {
+    background: #8b7355;
+    border-color: #8b7355;
+}
+
+@media (max-width: 600px) {
+
+    .juego-botones-finales {
+        flex-direction: column;
+    }
+
+    .juego-boton-final {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+}
 </style>
 
 </head>
@@ -1011,7 +1062,19 @@ h1 {
                 Tú tienes control de tu mente.<br>
                 Tú tienes control de tu cuerpo.
             </div>
+<div class="juego-botones-finales">
 
+    <a href="index.html" class="juego-boton-final juego-boton-biblioteca">
+        ← VOLVER A LA BIBLIOTECA
+    </a>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc32QrOhTtUkocA8lSOKA6OO2WcJZmlnBHZnZmxBAZYCGb0Wg/viewform?usp=publish-editor"
+       class="juego-boton-final juego-boton-experiencia"
+       target="_blank">
+        CUÉNTAME TU EXPERIENCIA →
+    </a>
+
+</div>
         </article>
 
     </div>
