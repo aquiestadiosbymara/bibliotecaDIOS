@@ -281,78 +281,123 @@ h1 {
     .reflexion h2 {
         font-size: 32px;
     }
-.juego-inicio {
-    padding: 70px 0 20px;
+/* =========================
+   JUEGO DE LA VIDA
+========================= */
+
+.juego-progreso {
+    margin-bottom: 55px;
 }
 
-.juego-tarjeta {
-    background: #ffffff;
-    border: 1px solid #e1d9cd;
-    padding: 50px 40px;
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.juego-etiqueta {
+.juego-progreso-texto {
+    display: flex;
+    justify-content: space-between;
     font-size: 11px;
+    letter-spacing: 2px;
+    color: #8b7355;
+    margin-bottom: 12px;
+}
+
+.juego-progreso-linea {
+    width: 100%;
+    height: 3px;
+    background: #ded5c8;
+    overflow: hidden;
+}
+
+.juego-progreso-barra {
+    height: 100%;
+    width: 20%;
+    background: #8b7355;
+    transition: width 0.5s ease;
+}
+
+.juego-paso {
+    display: none;
+    animation: aparecer 0.5s ease;
+}
+
+.juego-paso.activo {
+    display: block;
+}
+
+.juego-numero {
+    font-size: 12px;
     letter-spacing: 3px;
     color: #9a805c;
+    margin-bottom: 20px;
+}
+
+.juego-paso h2 {
+    font-family: Georgia, serif;
+    font-size: 44px;
+    font-weight: normal;
+    line-height: 1.15;
+    margin: 0 0 30px 0;
+}
+
+.juego-texto {
+    color: #444444;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 650px;
+}
+
+.juego-pregunta {
+    margin-top: 45px;
+    padding-top: 35px;
+    border-top: 1px solid #ded5c8;
+}
+
+.juego-pregunta > p {
+    color: #555555;
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+.juego-final {
+    display: none;
+    text-align: center;
+    animation: aparecer 0.7s ease;
+}
+
+.juego-final.activo {
+    display: block;
+}
+
+.juego-final h2 {
+    font-family: Georgia, serif;
+    font-size: 48px;
+    font-weight: normal;
+    line-height: 1.15;
     margin-bottom: 25px;
 }
 
-.juego-tarjeta h2 {
-    font-family: Georgia, serif;
-    font-size: 38px;
-    font-weight: normal;
-    margin: 0 0 20px;
-}
-
-.juego-tarjeta p {
-    max-width: 520px;
-    margin: 0 auto;
+.juego-final > p {
     color: #666666;
-    font-size: 16px;
-    line-height: 1.8;
+    line-height: 1.7;
+    max-width: 500px;
+    margin: 0 auto 40px auto;
 }
 
-.boton-juego {
-    display: block;
-    width: 100%;
-    max-width: 300px;
-    margin: 35px auto 0;
-    padding: 18px 25px;
-    background: #222222;
-    color: #ffffff;
-    border: none;
-    font-size: 12px;
-    letter-spacing: 2px;
-    cursor: pointer;
-}
-
-.boton-juego span {
-    margin-left: 15px;
-    color: #d0ad70;
+.resumen-juego {
+    max-width: 650px;
+    margin: 50px auto 0;
+    text-align: left;
 }
 
 @media (max-width: 600px) {
 
-    .juego-inicio {
-        padding-top: 50px;
+    .juego-paso h2 {
+        font-size: 34px;
     }
 
-    .juego-tarjeta {
-        padding: 40px 25px;
+    .juego-final h2 {
+        font-size: 38px;
     }
 
-    .juego-tarjeta h2 {
-        font-size: 32px;
-    }
-
-    .boton-juego {
-        max-width: none;
-    }
 }
+
 </style>
 
 </head>
@@ -565,30 +610,330 @@ h1 {
         </p>
 
     </section>
-<!-- JUEGO DE LA VIDA -->
+    <!-- =========================
+     JUEGO DE LA VIDA
+========================= -->
 
-<section class="juego-inicio">
+<section id="juego-vida" style="display:none;">
 
-    <div class="juego-tarjeta">
+    <div class="juego-progreso">
 
-        <div class="juego-etiqueta">
-            EL JUEGO DE LA VIDA
+        <div class="juego-progreso-texto">
+            <span id="juegoNumero">01 / 05</span>
+            <span>EL JUEGO DE LA VIDA</span>
         </div>
 
-        <h2>¿Estás preparada?</h2>
-
-        <p>
-            Vamos a eliminar un hábito.
-            Elige una cosa que repites automáticamente
-            y empieza el juego.
-        </p>
-
-        <button class="boton-juego" onclick="empezarJuego()">
-            EMPECEMOS
-            <span>↓</span>
-        </button>
+        <div class="juego-progreso-linea">
+            <div class="juego-progreso-barra" id="juegoBarra"></div>
+        </div>
 
     </div>
+
+
+    <!-- PASO 01 -->
+
+    <article class="juego-paso activo" id="juegoPaso1">
+
+        <p class="juego-numero">PASO 01</p>
+
+        <h2>
+            ELIGE EL HÁBITO
+            QUE QUIERES ELIMINAR
+        </h2>
+
+        <p class="juego-texto">
+            Piensa en una cosa que repites automáticamente
+            y que ya no quieres seguir haciendo.
+        </p>
+
+        <div class="juego-pregunta">
+
+            <p>
+                ¿Qué hábito quieres eliminar?
+            </p>
+
+            <textarea
+                id="habitoElegido"
+                class="campo-respuesta"
+                placeholder="Escríbelo aquí..."
+            ></textarea>
+
+        </div>
+
+        <div class="zona-boton">
+
+            <button
+                class="boton-determinacion"
+                onclick="juegoSiguiente(2)">
+                CONTINUAR
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </article>
+
+
+    <!-- PASO 02 -->
+
+    <article class="juego-paso" id="juegoPaso2">
+
+        <p class="juego-numero">PASO 02</p>
+
+        <h2>
+            MÍRALO DE FRENTE
+        </h2>
+
+        <p class="juego-texto">
+            Ahora que has elegido el hábito,
+            vamos a observar qué lugar ocupa en tu vida.
+        </p>
+
+        <div class="juego-pregunta">
+
+            <p>
+                ¿Qué te aporta este hábito cuando lo haces?
+            </p>
+
+            <textarea
+                class="campo-respuesta"
+                id="habitoAporta"
+                placeholder="Escribe aquí..."
+            ></textarea>
+
+        </div>
+
+        <div class="zona-boton">
+
+            <button
+                class="boton-determinacion"
+                onclick="juegoSiguiente(3)">
+                CONTINUAR
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </article>
+
+
+    <!-- PASO 03 -->
+
+    <article class="juego-paso" id="juegoPaso3">
+
+        <p class="juego-numero">PASO 03</p>
+
+        <h2>
+            DECIDE
+        </h2>
+
+        <p class="juego-texto">
+            El cambio empieza cuando dejas de negociar
+            con aquello que has decidido eliminar.
+        </p>
+
+        <div class="destacado">
+            No necesitas volver a decidirlo cada día.
+            Ya has decidido.
+        </div>
+
+        <div class="juego-pregunta">
+
+            <p>
+                ¿Estás dispuesta a dejar de alimentar este hábito?
+            </p>
+
+            <div class="opciones">
+
+                <div
+                    class="opcion"
+                    onclick="seleccionarJuego(this)">
+                    Sí. He tomado la decisión.
+                </div>
+
+                <div
+                    class="opcion"
+                    onclick="seleccionarJuego(this)">
+                    Necesito pensarlo.
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="zona-boton">
+
+            <button
+                class="boton-determinacion"
+                onclick="juegoSiguiente(4)">
+                CONTINUAR
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </article>
+
+
+    <!-- PASO 04 -->
+
+    <article class="juego-paso" id="juegoPaso4">
+
+        <p class="juego-numero">PASO 04</p>
+
+        <h2>
+            CAMBIA TU ENTORNO
+        </h2>
+
+        <p class="juego-texto">
+            Lo que tienes delante constantemente
+            puede hacer más fácil volver al hábito.
+        </p>
+
+        <div class="juego-pregunta">
+
+            <p>
+                ¿Qué necesitas retirar, cambiar o dejar de tener cerca?
+            </p>
+
+            <textarea
+                class="campo-respuesta"
+                id="habitoEntorno"
+                placeholder="Escribe aquí..."
+            ></textarea>
+
+        </div>
+
+        <div class="zona-boton">
+
+            <button
+                class="boton-determinacion"
+                onclick="juegoSiguiente(5)">
+                CONTINUAR
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </article>
+
+
+    <!-- PASO 05 -->
+
+    <article class="juego-paso" id="juegoPaso5">
+
+        <p class="juego-numero">PASO 05</p>
+
+        <h2>
+            AHORA ELIGE QUIÉN VAS A SER
+        </h2>
+
+        <p class="juego-texto">
+            No se trata solamente de dejar de hacer algo.
+            Se trata de empezar a vivir de una manera diferente.
+        </p>
+
+        <div class="juego-pregunta">
+
+            <p>
+                ¿Qué quieres empezar a hacer en lugar de volver a este hábito?
+            </p>
+
+            <textarea
+                class="campo-respuesta"
+                id="habitoNuevo"
+                placeholder="Escribe aquí..."
+            ></textarea>
+
+        </div>
+
+        <div class="zona-boton">
+
+            <button
+                class="boton-determinacion"
+                onclick="terminarJuego()">
+                TERMINAR
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </article>
+
+
+    <!-- FINAL -->
+
+    <section class="juego-final" id="juegoFinal">
+
+        <p class="juego-numero">
+            EL JUEGO DE LA VIDA · COMPLETADO
+        </p>
+
+        <h2>
+            Ya has tomado una decisión.
+        </h2>
+
+        <p>
+            Ahora empieza la parte importante:
+            vivirla.
+        </p>
+
+        <button
+            class="boton-determinacion"
+            onclick="mostrarResumenJuego()">
+            VER MI DECISIÓN
+            <span>→</span>
+        </button>
+
+
+        <div
+            id="resumenJuego"
+            class="resumen-juego"
+            style="display:none;">
+
+            <div class="respuesta-guardada">
+
+                <p class="titulo-respuesta">
+                    HÁBITO QUE QUIERO ELIMINAR
+                </p>
+
+                <p id="resumenHabito"></p>
+
+            </div>
+
+            <div class="respuesta-guardada">
+
+                <p class="titulo-respuesta">
+                    LO QUE ME APORTABA
+                </p>
+
+                <p id="resumenAporta"></p>
+
+            </div>
+
+            <div class="respuesta-guardada">
+
+                <p class="titulo-respuesta">
+                    MI ENTORNO
+                </p>
+
+                <p id="resumenEntorno"></p>
+
+            </div>
+
+            <div class="respuesta-guardada">
+
+                <p class="titulo-respuesta">
+                    LO QUE VOY A HACER EN SU LUGAR
+                </p>
+
+                <p id="resumenNuevo"></p>
+
+            </div>
+
+        </div>
+
+    </section>
 
 </section>
 </main>
