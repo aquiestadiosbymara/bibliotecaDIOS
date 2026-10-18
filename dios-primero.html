@@ -1,205 +1,732 @@
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pon a Dios primero | Mara Triguero</title>
+<link rel="stylesheet" href="style.css">
 
-    <title>Pon a Dios primero | Mara Triguero</title>
+<style>
+.dios-primero {
+    min-height: 100vh;
+    padding: 60px 20px;
+    background: #f4efe6;
+}
+.experiencia { max-width: 760px; margin: auto; }
+.cabecera { text-align: center; margin-bottom: 45px; }
+.cabecera .marca { margin: 0 0 20px; }
+.cabecera h1 {
+    font-size: 58px;
+    margin-bottom: 25px;
+    font-family: Georgia, serif;
+    font-weight: normal;
+    line-height: 1.15;
+}
+.subtitulo {
+    max-width: 560px;
+    margin: auto;
+    color: #666;
+    line-height: 1.7;
+    font-size: 17px;
+}
+.video-contenedor {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin: 45px auto;
+    overflow: hidden;
+    background: #e8dfd1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #76654f;
+    text-align: center;
+    line-height: 1.7;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.video-contenedor iframe { width: 100%; height: 100%; border: none; }
+.boton-dios-primero {
+    display: inline-block;
+    padding: 17px 30px;
+    background: #222;
+    color: white;
+    border: none;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: .2s;
+}
+.boton-dios-primero:hover { background: #40382e; }
+.boton-dios-primero span { margin-left: 12px; color: #d0ad70; }
+.centrado { text-align: center; }
+#contenido, #juego, #resultado { display: none; }
+#contenido { padding-top: 20px; }
+.volver-recurso {
+    display: inline-block;
+    margin: 25px 0 0 25px;
+    color: #8b7355;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+.volver-recurso:hover { color: #222; }
 
-    <link rel="stylesheet" href="style.css">
+.ensenanza {
+    background: rgba(255,255,255,.65);
+    border: 1px solid #e1d9cd;
+    padding: 34px;
+    margin: 35px 0;
+}
+.ensenanza h2 {
+    font-family: Georgia, serif;
+    font-size: 29px;
+    font-weight: normal;
+    text-align: center;
+    margin: 0 0 25px;
+}
+.ensenanza p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #45413b;
+    margin: 0 0 18px;
+}
+.ensenanza .frase-final {
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 21px;
+    color: #80643d;
+    margin: 28px 0 0;
+}
+.intro-juego { text-align: center; margin: 45px 0 25px; }
+.intro-juego h2 {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    font-weight: normal;
+}
+.intro-juego p { color: #666; line-height: 1.8; }
 
-    <style>
-        /* =========================
-           CÓDIGO 04 · DIOS PRIMERO
-        ========================= */
-
-        .dios-primero {
-            min-height: 100vh;
-            padding: 60px 20px;
-            background: #f4efe6;
-        }
-
-        .experiencia {
-            max-width: 760px;
-            margin: auto;
-        }
-
-        .cabecera {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .cabecera .marca {
-            margin: 0 0 20px 0;
-        }
-
-        .cabecera h1 {
-            font-size: 58px;
-            margin-bottom: 25px;
-        }
-
-        .subtitulo {
-            max-width: 560px;
-            margin: auto;
-            color: #666666;
-            line-height: 1.7;
-            font-size: 17px;
-        }
-
-        /* VÍDEO */
-
-        .video-contenedor {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            margin: 45px auto;
-            overflow: hidden;
-            background: #222222;
-        }
-
-        .video-contenedor iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* BOTÓN */
-
-        .boton-dios-primero {
-            display: inline-block;
-            padding: 17px 30px;
-            background: #222222;
-            color: white;
-            border: none;
-            text-decoration: none;
-            font-size: 12px;
-            letter-spacing: 2px;
-            cursor: pointer;
-        }
-
-        .boton-dios-primero span {
-            margin-left: 12px;
-            color: #d0ad70;
-        }
-
-        .centrado {
-            text-align: center;
-        }
-
-        /* CONTENIDO */
-
-        #contenido {
-            display: none;
-            padding-top: 20px;
-        }
-
-        .volver-recurso {
-            display: inline-block;
-            margin: 25px 0 0 25px;
-            color: #8b7355;
-            text-decoration: none;
-            font-size: 10px;
-            letter-spacing: 2px;
-        }
-
-        .volver-recurso:hover {
-            color: #222222;
-        }
-
-        /* MÓVIL */
-
-        @media (max-width: 600px) {
-            .dios-primero {
-                padding: 45px 20px;
-            }
-
-            .cabecera h1 {
-                font-size: 42px;
-            }
-        }
-    </style>
+.juego-caja {
+    background: white;
+    border: 1px solid #e1d9cd;
+    padding: 32px;
+    margin-top: 25px;
+}
+.juego-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    color: #9a7a49;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+}
+.barra {
+    height: 4px;
+    background: #eee7dc;
+    margin-bottom: 30px;
+}
+.barra-interior {
+    height: 100%;
+    width: 0;
+    background: #c7a36b;
+    transition: width .3s;
+}
+.pregunta-titulo {
+    font-family: Georgia, serif;
+    font-size: 27px;
+    line-height: 1.4;
+    font-weight: normal;
+    margin: 0 0 14px;
+}
+.contexto { color: #69645d; font-size: 15px; line-height: 1.8; margin-bottom: 24px; }
+.opciones { display: grid; gap: 12px; }
+.opcion {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    padding: 16px;
+    text-align: left;
+    background: #faf8f4;
+    border: 1px solid #e5ded2;
+    color: #302d29;
+    font: inherit;
+    font-size: 14px;
+    line-height: 1.7;
+    cursor: pointer;
+}
+.opcion:hover:not(:disabled) { border-color: #b99a68; background: #f6f0e5; }
+.opcion:disabled { cursor: default; opacity: 1; }
+.letra {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 27px;
+    background: #e9e0d2;
+    color: #705a3d;
+    font-size: 12px;
+}
+.opcion.correcta { border-color: #8a9c7c; background: #f0f4ed; }
+.opcion.incorrecta { border-color: #c7a19a; background: #f8efed; }
+.retro {
+    display: none;
+    margin-top: 22px;
+    padding: 20px;
+    background: #f6f0e5;
+    border-left: 3px solid #c7a36b;
+}
+.retro h3 { font-family: Georgia,serif; font-weight: normal; font-size: 20px; margin: 0 0 8px; }
+.retro p { color: #514b42; font-size: 14px; line-height: 1.8; margin: 0; }
+.siguiente { text-align: center; margin-top: 24px; }
+.boton-siguiente {
+    padding: 15px 24px;
+    border: 1px solid #222;
+    background: #222;
+    color: white;
+    font-size: 10px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+.resultado-caja {
+    text-align: center;
+    background: white;
+    border: 1px solid #e1d9cd;
+    padding: 38px 30px;
+}
+.resultado-caja h2 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: 34px;
+}
+.resultado-caja p { color: #5f5a52; font-size: 15px; line-height: 1.9; }
+.puntuacion { font-family: Georgia,serif; font-size: 22px; color: #8a6d42; margin: 24px 0; }
+.mensaje-final {
+    background: #f6f0e5;
+    padding: 22px;
+    font-family: Georgia,serif;
+    font-size: 19px;
+    line-height: 1.7;
+    color: #6f5634;
+    margin: 25px 0;
+}
+@media(max-width:600px) {
+    .dios-primero { padding: 35px 16px 55px; }
+    .cabecera h1 { font-size: 42px; }
+    .subtitulo { font-size: 15px; }
+    .ensenanza { padding: 24px 20px; }
+    .ensenanza p { font-size: 14px; }
+    .juego-caja { padding: 22px 17px; }
+    .pregunta-titulo { font-size: 23px; }
+    .intro-juego h2 { font-size: 28px; }
+    .resultado-caja { padding: 28px 20px; }
+}
+</style>
 </head>
 
 <body>
-
 <main class="dios-primero">
+<a href="biblioteca.html" class="volver-recurso">← VOLVER A LA BIBLIOTECA</a>
 
-    <a href="biblioteca.html" class="volver-recurso">
-        ← VOLVER A LA BIBLIOTECA
-    </a>
+<div class="experiencia">
 
-    <div class="experiencia">
-
-        <!-- PORTADA -->
-
-        <section id="portada">
-
-            <div class="cabecera">
-
-                <p class="marca">CÓDIGO 04</p>
-
-                <h1>Pon a Dios<br>primero</h1>
-
-                <p class="subtitulo">
-                    Aprende a dejar de vivir en automático y a contar
-                    con Dios en tu manera de vivir, decidir y relacionarte
-                    con el mundo.
-                </p>
-
-            </div>
-
-            <div class="video-contenedor">
-
-                <!-- AÑADIREMOS AQUÍ EL VÍDEO CUANDO ESTÉ GRABADO -->
-
-            </div>
-
-            <div class="centrado">
-
-                <button
-                    class="boton-dios-primero"
-                    type="button"
-                    onclick="comenzar()">
-
-                    QUIERO COMENZAR
-                    <span>→</span>
-
-                </button>
-
-            </div>
-
-        </section>
-
-        <!-- CONTENIDO DEL CÓDIGO 04 -->
-
-        <section id="contenido">
-
-            <!-- Aquí construiremos la explicación
-                 y la experiencia interactiva aprobadas. -->
-
-        </section>
-
+<!-- PORTADA ORIGINAL -->
+<section id="portada">
+    <div class="cabecera">
+        <p class="marca">CÓDIGO 04</p>
+        <h1>Pon a Dios<br>primero</h1>
+        <p class="subtitulo">
+            Aprende a dejar de vivir en automático y a contar
+            con Dios en tu manera de vivir, decidir y relacionarte
+            con el mundo.
+        </p>
     </div>
 
+    <div class="video-contenedor">
+        Aquí añadiremos el vídeo cuando esté grabado.
+    </div>
+
+    <div class="centrado">
+        <button class="boton-dios-primero" type="button" onclick="comenzar()">
+            QUIERO COMENZAR <span>→</span>
+        </button>
+    </div>
+</section>
+
+<!-- ENSEÑANZA -->
+<section id="contenido">
+    <div class="cabecera">
+        <p class="marca">CÓDIGO 04</p>
+        <h1>Vivir en Su<br>presencia</h1>
+        <p class="subtitulo">
+            Aprende a dejar de vivir en automático y a poner a Dios
+            en el centro de tu vida cotidiana.
+        </p>
+    </div>
+
+    <article class="ensenanza">
+        <h2>Pon a Dios primero</h2>
+
+        <p>
+            Princesa, muchas veces creemos que estamos viviendo bajo el reino
+            de Dios, pero en realidad seguimos viviendo en automático.
+            Nos despertamos, hacemos nuestras tareas, estudiamos, comemos
+            y terminamos el día sin ser plenamente conscientes de cómo lo
+            hemos vivido ni de los pensamientos que han pasado por nuestra mente.
+        </p>
+
+        <p>
+            Quiero ponerte un ejemplo. ¿Alguna vez has ido de viaje y has
+            sentido que el camino de ida se hacía eterno, pero que el de
+            vuelta se pasaba volando? El recorrido podía ser prácticamente
+            el mismo, pero tu experiencia era diferente. A la ida estabas
+            pendiente de lo que veías, tenías ilusión y eras consciente del
+            camino. A la vuelta, posiblemente estabas pensando en otras cosas
+            y, cuando te dabas cuenta, ya habías llegado.
+        </p>
+
+        <p>
+            Esto es lo que nos ocurre muchas veces en nuestro día a día:
+            vivimos tan pendientes de lo siguiente que tenemos que hacer que
+            dejamos de ser conscientes del momento que estamos viviendo.
+            Y, cuando vivimos así, tampoco somos conscientes de la presencia
+            de Dios en nuestra vida.
+        </p>
+
+        <p>
+            Por eso, poner a Dios primero no consiste únicamente en levantarte
+            por la mañana, leer unos capítulos de la Biblia y hacer una pequeña
+            oración para después continuar con tu día como si Él no estuviera.
+            <strong>Poner a Dios primero es aprender a caminar con Él durante
+            todo el día, incluyéndolo intencionalmente en cada situación.</strong>
+        </p>
+
+        <p>
+            Cuando estudias, puedes pedirle sabiduría y entendimiento.
+            Cuando comes, puedes agradecerle los alimentos. Cuando cocinas,
+            te duchas, descansas o tienes que tomar una decisión, también
+            puedes contar con Él. No se trata de repetir palabras por repetirlas,
+            sino de vivir siendo consciente de que quieres compartir tu día con Dios.
+        </p>
+
+        <p>
+            Y esto empieza incluso antes de despertarte. Personalmente, yo
+            procuro poner a Dios primero desde la noche anterior, preparando
+            mi mente y mi intención para comenzar un nuevo día con Él.
+            No quiero esperar a que empiece la mañana para acordarme de que
+            Dios es el centro de mi vida.
+        </p>
+
+        <p>
+            También quiero que entiendas que leer la Palabra no es leer por leer.
+            Es estudiarla, buscar entendimiento y estar dispuesta a detenerte
+            cuando no comprendes lo que estás leyendo, en lugar de continuar
+            simplemente por cumplir.
+        </p>
+
+        <p>
+            Princesa, puedes creer en Dios y, aun así, vivir tus días sin contar
+            conscientemente con Él. Una relación con Dios no se construye
+            solamente en los momentos que reservas para orar, sino también
+            en la manera en la que eliges vivir el resto de tu día.
+        </p>
+
+        <p class="frase-final">
+            No se trata solamente de tener momentos con Dios,
+            sino de aprender a vivir cada momento con Él.
+        </p>
+    </article>
+
+    <div class="intro-juego">
+        <p class="marca">AHORA TE TOCA A TI</p>
+        <h2>Vamos a ponerlo en práctica</h2>
+        <p>
+            Lee cada situación, elige tu respuesta y descubre cómo puedes
+            empezar a vivir tu día incluyendo a Dios intencionalmente.
+        </p>
+    </div>
+
+    <div class="centrado">
+        <button class="boton-dios-primero" type="button" onclick="comenzarJuego()">
+            QUIERO COMENZAR EL JUEGO <span>→</span>
+        </button>
+    </div>
+</section>
+
+<!-- JUEGO INTERACTIVO -->
+<section id="juego">
+    <div class="cabecera">
+        <p class="marca">CÓDIGO 04 · EXPERIENCIA INTERACTIVA</p>
+        <h1>¿Estás viviendo<br>con Dios?</h1>
+        <p class="subtitulo">
+            Lee cada situación, piensa en cómo actuarías y elige tu respuesta.
+        </p>
+    </div>
+
+    <div class="juego-caja">
+        <div class="juego-meta">
+            <span id="numero-pregunta">SITUACIÓN 1 DE 6</span>
+            <span id="marcador">0 PUNTOS</span>
+        </div>
+
+        <div class="barra">
+            <div class="barra-interior" id="barra-progreso"></div>
+        </div>
+
+        <h2 class="pregunta-titulo" id="pregunta"></h2>
+        <p class="contexto" id="contexto"></p>
+        <div class="opciones" id="opciones"></div>
+
+        <div class="retro" id="retro" aria-live="polite">
+            <h3 id="titulo-retro"></h3>
+            <p id="texto-retro"></p>
+        </div>
+
+        <div class="siguiente" id="zona-siguiente" style="display:none">
+            <button class="boton-siguiente" id="boton-siguiente" onclick="siguientePregunta()">
+                SIGUIENTE SITUACIÓN →
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- RESULTADO -->
+<section id="resultado">
+    <div class="cabecera">
+        <p class="marca">CÓDIGO 04 · RECORRIDO COMPLETADO</p>
+        <h1>Vuelve a Su<br>presencia</h1>
+    </div>
+
+    <div class="resultado-caja">
+        <h2 id="titulo-resultado">Has completado el recorrido</h2>
+        <p id="texto-resultado"></p>
+        <div class="puntuacion" id="puntuacion-final"></div>
+
+        <div class="mensaje-final">
+            No necesitas esperar a que termine el día para volver a poner a Dios
+            en el centro. Puedes incluirlo en el momento que estás viviendo ahora.
+        </div>
+
+        <p>
+            Empieza por algo sencillo: mañana, cuando despiertes, recuerda que
+            quieres caminar con Dios. Y durante el día, cuando te des cuenta
+            de que has vuelto al automático, vuelve a dirigir tu atención hacia Él.
+        </p>
+
+        <div class="centrado" style="margin-top:25px">
+            <button class="boton-dios-primero" onclick="reiniciarJuego()">
+                VOLVER A JUGAR <span>↻</span>
+            </button>
+            <p><a href="biblioteca.html">← VOLVER A LA BIBLIOTECA</a></p>
+        </div>
+    </div>
+</section>
+
+</div>
 </main>
 
 <script>
-    function comenzar() {
+const preguntas = [
+    {
+        pregunta: "Te despiertas y tu mente empieza a correr.",
+        contexto: "Piensas en todo lo que tienes que hacer, coges el móvil y empiezas el día sin detenerte. ¿Qué puedes hacer para poner a Dios primero?",
+        opciones: [
+            {
+                texto: "Seguir con mis tareas y hablar con Dios cuando tenga tiempo.",
+                puntos: 0,
+                titulo: "Observa tu intención",
+                explicacion: "Si esperas a tener tiempo libre, puedes dejar tu relación con Dios para el final. Ponerlo primero empieza cuando decides incluirlo intencionalmente en tu día."
+            },
+            {
+                texto: "Detenerme, dirigirme a Dios y preparar mi mente para vivir el día con Él.",
+                puntos: 1,
+                titulo: "Empieza con intención",
+                explicacion: "Quieres comenzar el día recordando que Dios es el centro de tu vida, en lugar de dejarte llevar automáticamente por tus tareas y pensamientos."
+            },
+            {
+                texto: "Sentirme culpable porque todavía no he hecho mi oración.",
+                puntos: 0,
+                titulo: "No se trata de vivir desde la culpa",
+                explicacion: "El objetivo no es castigarte mentalmente. Es dirigirte a Dios de manera consciente y cultivar tu relación con Él."
+            }
+        ]
+    },
+    {
+        pregunta: "Estás estudiando y no consigues entender nada.",
+        contexto: "Llevas un rato intentándolo, te frustras y empiezas a pensar que no vas a conseguirlo. ¿Cómo puedes incluir a Dios en ese momento?",
+        opciones: [
+            {
+                texto: "Seguir frustrándome hasta terminar todo lo pendiente.",
+                puntos: 0,
+                titulo: "Puedes detenerte",
+                explicacion: "No tienes que dejar que la frustración dirija todo el momento. Puedes parar, hablar con Dios, pedir sabiduría y después continuar con intención."
+            },
+            {
+                texto: "Pedirle a Dios sabiduría, entendimiento y fuerzas, y continuar haciendo mi parte.",
+                puntos: 1,
+                titulo: "Cuenta con Él",
+                explicacion: "Incluir a Dios no significa dejar de estudiar. Significa contar con Él mientras haces tu parte y pedirle entendimiento en lo que estás aprendiendo."
+            },
+            {
+                texto: "Esperar a terminar de estudiar para acordarme de Dios.",
+                puntos: 0,
+                titulo: "No tienes que esperar",
+                explicacion: "No necesitas separar tu vida cotidiana de tu relación con Dios. También puedes incluirlo en los momentos difíciles."
+            }
+        ]
+    },
+    {
+        pregunta: "Te sientas a comer después de una mañana llena de tareas.",
+        contexto: "Tienes hambre y empiezas a comer mientras sigues pensando en todo lo que te queda por hacer. ¿Cómo puedes vivir ese momento con Dios?",
+        opciones: [
+            {
+                texto: "Comer deprisa mientras sigo repasando mentalmente mis pendientes.",
+                puntos: 0,
+                titulo: "Vuelve al momento presente",
+                explicacion: "Puedes detenerte un instante, reconocer lo que tienes delante y agradecer a Dios por los alimentos y por este momento."
+            },
+            {
+                texto: "Agradecer a Dios los alimentos y ser consciente de este momento que estoy viviendo.",
+                puntos: 1,
+                titulo: "Inclúyelo en lo cotidiano",
+                explicacion: "Exactamente. No necesitas esperar a que ocurra algo extraordinario para dirigirte a Dios. También puedes contar con Él en algo tan cotidiano como comer."
+            },
+            {
+                texto: "Pensar que solo debo buscar a Dios cuando tengo un problema.",
+                puntos: 0,
+                titulo: "Tu relación no es solo para los problemas",
+                explicacion: "Puedes buscar a Dios también en la gratitud, en la tranquilidad y en las pequeñas situaciones de cada día."
+            }
+        ]
+    },
+    {
+        pregunta: "Vas a ducharte después de un día largo.",
+        contexto: "Es algo que haces casi todos los días y normalmente ni siquiera piensas en ello. ¿Qué podrías hacer diferente?",
+        opciones: [
+            {
+                texto: "No pensar en nada y terminar cuanto antes para seguir con lo mío.",
+                puntos: 0,
+                titulo: "También puedes incluirlo aquí",
+                explicacion: "No necesitas que el momento sea especial para dirigirte a Dios. Puedes agradecerle incluso el agua caliente y las cosas cotidianas que recibes."
+            },
+            {
+                texto: "Agradecer a Dios por poder ducharme y por las cosas que a menudo doy por hechas.",
+                puntos: 1,
+                titulo: "La gratitud te ayuda a ser consciente",
+                explicacion: "Estás aprendiendo a dejar de pasar por tu día sin darte cuenta de lo que vives y a incluir a Dios intencionalmente en tus momentos."
+            },
+            {
+                texto: "Pensar que Dios solo está presente cuando leo la Biblia.",
+                puntos: 0,
+                titulo: "Puedes contar con Él durante todo el día",
+                explicacion: "Leer y estudiar la Palabra es importante para tu relación con Dios, pero también puedes dirigirte a Él en tus actividades cotidianas."
+            }
+        ]
+    },
+    {
+        pregunta: "Llega la noche y te das cuenta de que has pasado el día en automático.",
+        contexto: "Has hecho muchas cosas, pero apenas has sido consciente de cómo has vivido el día ni de cómo has incluido a Dios. ¿Qué puedes hacer?",
+        opciones: [
+            {
+                texto: "Pensar que ya no tiene sentido porque el día está terminando.",
+                puntos: 0,
+                titulo: "Puedes volver a Él ahora",
+                explicacion: "No necesitas esperar al día siguiente para volver a dirigir tu atención a Dios. Puedes hacerlo ahora y preparar intencionalmente tu mente para mañana."
+            },
+            {
+                texto: "Detenerme, dirigirme a Dios y preparar mi mente para comenzar el nuevo día con Él.",
+                puntos: 1,
+                titulo: "Empieza antes de mañana",
+                explicacion: "Como has explicado en tu propia manera de vivir, puedes empezar desde la noche anterior, preparando tu intención para poner a Dios primero en el día que viene."
+            },
+            {
+                texto: "Ignorarlo y confiar en que mañana me acordaré.",
+                puntos: 0,
+                titulo: "La intención empieza ahora",
+                explicacion: "Puedes empezar a cultivar esa intención en este momento, en lugar de dejarla para después. Volver a Dios no requiere esperar a que llegue una hora concreta."
+            }
+        ]
+    },
+    {
+        pregunta: "Estás leyendo la Biblia y encuentras un pasaje que no entiendes.",
+        contexto: "Quieres avanzar con tu lectura porque te has propuesto terminar los capítulos del día. ¿Qué haces?",
+        opciones: [
+            {
+                texto: "Continuar leyendo para terminar los capítulos que me había propuesto.",
+                puntos: 0,
+                titulo: "No se trata de leer por cumplir",
+                explicacion: "Como has explicado, la Palabra no se lee simplemente para tachar una tarea. Es importante buscar entendimiento y detenerte a estudiar aquello que no comprendes."
+            },
+            {
+                texto: "Detenerme, estudiar el pasaje y buscar entendimiento en lugar de leer por leer.",
+                puntos: 1,
+                titulo: "Busca entendimiento",
+                explicacion: "Tu intención no es acumular capítulos, sino profundizar en la Palabra y comprender lo que estás leyendo."
+            },
+            {
+                texto: "Cerrar la Biblia porque, si no entiendo el pasaje inmediatamente, no merece la pena.",
+                puntos: 0,
+                titulo: "Puedes dedicar tiempo a comprender",
+                explicacion: "No necesitas comprenderlo todo al instante. Puedes detenerte, investigar el contexto, orar y seguir profundizando con paciencia."
+            }
+        ]
+    }
+];
 
-        document.getElementById("portada").style.display = "none";
+let indice = 0;
+let puntos = 0;
+let respondida = false;
 
-        document.getElementById("contenido").style.display = "block";
+function mostrarSeccion(id) {
+    ["portada", "contenido", "juego", "resultado"].forEach(function(seccion) {
+        document.getElementById(seccion).style.display =
+            seccion === id ? "block" : "none";
+    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
+function comenzar() {
+    mostrarSeccion("contenido");
+}
+
+function comenzarJuego() {
+    indice = 0;
+    puntos = 0;
+    mostrarSeccion("juego");
+    pintarPregunta();
+}
+
+function pintarPregunta() {
+    respondida = false;
+
+    const p = preguntas[indice];
+
+    document.getElementById("numero-pregunta").textContent =
+        "SITUACIÓN " + (indice + 1) + " DE " + preguntas.length;
+
+    document.getElementById("marcador").textContent =
+        puntos + (puntos === 1 ? " PUNTO" : " PUNTOS");
+
+    document.getElementById("barra-progreso").style.width =
+        (indice / preguntas.length * 100) + "%";
+
+    document.getElementById("pregunta").textContent = p.pregunta;
+    document.getElementById("contexto").textContent = p.contexto;
+    document.getElementById("opciones").innerHTML = "";
+    document.getElementById("retro").style.display = "none";
+    document.getElementById("zona-siguiente").style.display = "none";
+
+    p.opciones.forEach(function(opcion, i) {
+        const boton = document.createElement("button");
+        boton.type = "button";
+        boton.className = "opcion";
+
+        const letra = document.createElement("span");
+        letra.className = "letra";
+        letra.textContent = String.fromCharCode(65 + i);
+
+        const texto = document.createElement("span");
+        texto.textContent = opcion.texto;
+
+        boton.appendChild(letra);
+        boton.appendChild(texto);
+        boton.addEventListener("click", function() {
+            responder(i);
         });
 
-    }
-</script>
+        document.getElementById("opciones").appendChild(boton);
+    });
+}
 
+function responder(seleccion) {
+    if (respondida) return;
+    respondida = true;
+
+    const p = preguntas[indice];
+    const respuesta = p.opciones[seleccion];
+
+    puntos += respuesta.puntos;
+
+    const botones = document.querySelectorAll("#opciones .opcion");
+
+    botones.forEach(function(boton, i) {
+        boton.disabled = true;
+
+        if (p.opciones[i].puntos === 1) {
+            boton.classList.add("correcta");
+        }
+
+        if (i === seleccion && respuesta.puntos === 0) {
+            boton.classList.add("incorrecta");
+        }
+    });
+
+    document.getElementById("marcador").textContent =
+        puntos + (puntos === 1 ? " PUNTO" : " PUNTOS");
+
+    document.getElementById("titulo-retro").textContent = respuesta.titulo;
+    document.getElementById("texto-retro").textContent = respuesta.explicacion;
+    document.getElementById("retro").style.display = "block";
+
+    document.getElementById("barra-progreso").style.width =
+        ((indice + 1) / preguntas.length * 100) + "%";
+
+    document.getElementById("boton-siguiente").textContent =
+        indice === preguntas.length - 1
+            ? "VER MI RESULTADO →"
+            : "SIGUIENTE SITUACIÓN →";
+
+    document.getElementById("zona-siguiente").style.display = "block";
+}
+
+function siguientePregunta() {
+    if (!respondida) return;
+
+    indice++;
+
+    if (indice >= preguntas.length) {
+        mostrarResultado();
+    } else {
+        pintarPregunta();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+}
+
+function mostrarResultado() {
+    mostrarSeccion("resultado");
+
+    document.getElementById("puntuacion-final").textContent =
+        puntos + " / " + preguntas.length + " respuestas alineadas";
+
+    let titulo;
+    let texto;
+
+    if (puntos >= 5) {
+        titulo = "Sigue caminando con Él";
+        texto = "Has reconocido muchas formas de incluir a Dios intencionalmente en tu vida cotidiana. Sigue cultivando esa consciencia, también en los momentos más sencillos.";
+    } else if (puntos >= 3) {
+        titulo = "Empieza a vivir con intención";
+        texto = "Este recorrido te invita a observar los momentos en los que puedes dejar de actuar automáticamente e incluir a Dios. No se trata de hacerlo todo perfecto, sino de aprender a caminar con Él durante tu día.";
+    } else {
+        titulo = "Hoy puedes empezar de nuevo";
+        texto = "Ahora tienes situaciones concretas en las que puedes practicarlo. Empieza por dirigir tu atención a Dios y contar con Él en aquello que estés viviendo, sin esperar a que llegue un momento perfecto.";
+    }
+
+    document.getElementById("titulo-resultado").textContent = titulo;
+    document.getElementById("texto-resultado").textContent = texto;
+}
+
+function reiniciarJuego() {
+    indice = 0;
+    puntos = 0;
+    respondida = false;
+    comenzarJuego();
+}
+</script>
 </body>
 </html>
 
