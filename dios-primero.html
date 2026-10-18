@@ -1,1 +1,205 @@
 
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pon a Dios primero | Mara Triguero</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================
+           CÓDIGO 04 · DIOS PRIMERO
+        ========================= */
+
+        .dios-primero {
+            min-height: 100vh;
+            padding: 60px 20px;
+            background: #f4efe6;
+        }
+
+        .experiencia {
+            max-width: 760px;
+            margin: auto;
+        }
+
+        .cabecera {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .cabecera .marca {
+            margin: 0 0 20px 0;
+        }
+
+        .cabecera h1 {
+            font-size: 58px;
+            margin-bottom: 25px;
+        }
+
+        .subtitulo {
+            max-width: 560px;
+            margin: auto;
+            color: #666666;
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        /* VÍDEO */
+
+        .video-contenedor {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            margin: 45px auto;
+            overflow: hidden;
+            background: #222222;
+        }
+
+        .video-contenedor iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* BOTÓN */
+
+        .boton-dios-primero {
+            display: inline-block;
+            padding: 17px 30px;
+            background: #222222;
+            color: white;
+            border: none;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        .boton-dios-primero span {
+            margin-left: 12px;
+            color: #d0ad70;
+        }
+
+        .centrado {
+            text-align: center;
+        }
+
+        /* CONTENIDO */
+
+        #contenido {
+            display: none;
+            padding-top: 20px;
+        }
+
+        .volver-recurso {
+            display: inline-block;
+            margin: 25px 0 0 25px;
+            color: #8b7355;
+            text-decoration: none;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        .volver-recurso:hover {
+            color: #222222;
+        }
+
+        /* MÓVIL */
+
+        @media (max-width: 600px) {
+            .dios-primero {
+                padding: 45px 20px;
+            }
+
+            .cabecera h1 {
+                font-size: 42px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<main class="dios-primero">
+
+    <a href="biblioteca.html" class="volver-recurso">
+        ← VOLVER A LA BIBLIOTECA
+    </a>
+
+    <div class="experiencia">
+
+        <!-- PORTADA -->
+
+        <section id="portada">
+
+            <div class="cabecera">
+
+                <p class="marca">CÓDIGO 04</p>
+
+                <h1>Pon a Dios<br>primero</h1>
+
+                <p class="subtitulo">
+                    Aprende a dejar de vivir en automático y a contar
+                    con Dios en tu manera de vivir, decidir y relacionarte
+                    con el mundo.
+                </p>
+
+            </div>
+
+            <div class="video-contenedor">
+
+                <!-- AÑADIREMOS AQUÍ EL VÍDEO CUANDO ESTÉ GRABADO -->
+
+            </div>
+
+            <div class="centrado">
+
+                <button
+                    class="boton-dios-primero"
+                    type="button"
+                    onclick="comenzar()">
+
+                    QUIERO COMENZAR
+                    <span>→</span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- CONTENIDO DEL CÓDIGO 04 -->
+
+        <section id="contenido">
+
+            <!-- Aquí construiremos la explicación
+                 y la experiencia interactiva aprobadas. -->
+
+        </section>
+
+    </div>
+
+</main>
+
+<script>
+    function comenzar() {
+
+        document.getElementById("portada").style.display = "none";
+
+        document.getElementById("contenido").style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+</script>
+
+</body>
+</html>
+
