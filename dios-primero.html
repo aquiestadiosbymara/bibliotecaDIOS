@@ -47,6 +47,7 @@
     box-sizing: border-box;
 }
 .video-contenedor iframe { width: 100%; height: 100%; border: none; }
+
 .boton-dios-primero {
     display: inline-block;
     padding: 17px 30px;
@@ -62,8 +63,10 @@
 .boton-dios-primero:hover { background: #40382e; }
 .boton-dios-primero span { margin-left: 12px; color: #d0ad70; }
 .centrado { text-align: center; }
-#contenido, #juego, #resultado { display: none; }
+
+#contenido, #juego, #resultado, #regalo { display: none; }
 #contenido { padding-top: 20px; }
+
 .volver-recurso {
     display: inline-block;
     margin: 25px 0 0 25px;
@@ -73,6 +76,57 @@
     letter-spacing: 2px;
 }
 .volver-recurso:hover { color: #222; }
+
+/* PANTALLA DEL REGALO */
+.gift-caja {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 38px 30px;
+    text-align: center;
+    background: rgba(255,255,255,.78);
+    border: 1px solid #d8c39f;
+}
+.gift-caja h2 {
+    font-family: Georgia, serif;
+    font-size: 36px;
+    line-height: 1.25;
+    font-weight: normal;
+    color: #80643d;
+    margin: 0 0 12px;
+}
+.gift-caja h3 {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: normal;
+    color: #302d29;
+    margin: 0 0 24px;
+}
+.gift-caja p {
+    color: #514b42;
+    font-size: 15px;
+    line-height: 1.9;
+    margin: 0 0 18px;
+}
+.gift-caja .frase-regalo {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    color: #80643d;
+    margin: 26px 0;
+}
+.boton-regalo {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 17px 28px;
+    background: #b99a68;
+    color: #fff;
+    border: none;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 1.6px;
+    cursor: pointer;
+    transition: .2s;
+}
+.boton-regalo:hover { background: #8b7355; }
 
 .ensenanza {
     background: rgba(255,255,255,.65);
@@ -141,7 +195,12 @@
     font-weight: normal;
     margin: 0 0 14px;
 }
-.contexto { color: #69645d; font-size: 15px; line-height: 1.8; margin-bottom: 24px; }
+.contexto {
+    color: #69645d;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
 .opciones { display: grid; gap: 12px; }
 .opcion {
     display: flex;
@@ -158,7 +217,10 @@
     line-height: 1.7;
     cursor: pointer;
 }
-.opcion:hover:not(:disabled) { border-color: #b99a68; background: #f6f0e5; }
+.opcion:hover:not(:disabled) {
+    border-color: #b99a68;
+    background: #f6f0e5;
+}
 .opcion:disabled { cursor: default; opacity: 1; }
 .letra {
     flex-shrink: 0;
@@ -180,8 +242,18 @@
     background: #f6f0e5;
     border-left: 3px solid #c7a36b;
 }
-.retro h3 { font-family: Georgia,serif; font-weight: normal; font-size: 20px; margin: 0 0 8px; }
-.retro p { color: #514b42; font-size: 14px; line-height: 1.8; margin: 0; }
+.retro h3 {
+    font-family: Georgia,serif;
+    font-weight: normal;
+    font-size: 20px;
+    margin: 0 0 8px;
+}
+.retro p {
+    color: #514b42;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+}
 .siguiente { text-align: center; margin-top: 24px; }
 .boton-siguiente {
     padding: 15px 24px;
@@ -203,8 +275,17 @@
     font-weight: normal;
     font-size: 34px;
 }
-.resultado-caja p { color: #5f5a52; font-size: 15px; line-height: 1.9; }
-.puntuacion { font-family: Georgia,serif; font-size: 22px; color: #8a6d42; margin: 24px 0; }
+.resultado-caja p {
+    color: #5f5a52;
+    font-size: 15px;
+    line-height: 1.9;
+}
+.puntuacion {
+    font-family: Georgia,serif;
+    font-size: 22px;
+    color: #8a6d42;
+    margin: 24px 0;
+}
 .mensaje-final {
     background: #f6f0e5;
     padding: 22px;
@@ -214,6 +295,7 @@
     color: #6f5634;
     margin: 25px 0;
 }
+
 @media(max-width:600px) {
     .dios-primero { padding: 35px 16px 55px; }
     .cabecera h1 { font-size: 42px; }
@@ -224,17 +306,24 @@
     .pregunta-titulo { font-size: 23px; }
     .intro-juego h2 { font-size: 28px; }
     .resultado-caja { padding: 28px 20px; }
+    .gift-caja { padding: 28px 20px; }
+    .gift-caja h2 { font-size: 30px; }
+    .gift-caja h3 { font-size: 22px; }
+    .gift-caja p { font-size: 14px; }
 }
 </style>
 </head>
 
 <body>
 <main class="dios-primero">
-<a href="biblioteca.html" class="volver-recurso">← VOLVER A LA BIBLIOTECA</a>
+
+<a href="biblioteca.html" class="volver-recurso">
+    ← VOLVER A LA BIBLIOTECA
+</a>
 
 <div class="experiencia">
 
-<!-- PORTADA ORIGINAL -->
+<!-- PORTADA -->
 <section id="portada">
     <div class="cabecera">
         <p class="marca">CÓDIGO 04</p>
@@ -394,7 +483,7 @@
     </div>
 </section>
 
-<!-- RESULTADO -->
+<!-- RESULTADO FINAL -->
 <section id="resultado">
     <div class="cabecera">
         <p class="marca">CÓDIGO 04 · RECORRIDO COMPLETADO</p>
@@ -418,11 +507,56 @@
         </p>
 
         <div class="centrado" style="margin-top:25px">
-            <button class="boton-dios-primero" onclick="reiniciarJuego()">
+            <button class="boton-dios-primero" type="button" onclick="reiniciarJuego()">
                 VOLVER A JUGAR <span>↻</span>
             </button>
-            <p><a href="biblioteca.html">← VOLVER A LA BIBLIOTECA</a></p>
+
+            <button class="boton-regalo" type="button" onclick="abrirRegalo()">
+                PRÁCTICA DE REGALO ♡
+            </button>
         </div>
+    </div>
+</section>
+
+<!-- REGALO: PRÁCTICA DESCARGABLE -->
+<section id="regalo">
+    <div class="cabecera">
+        <p class="marca">CÓDIGO 04 · UN REGALO PARA TI</p>
+        <h1>Una práctica<br>para caminar con Él</h1>
+        <p class="subtitulo">
+            Un pequeño paso para empezar a vivir conscientemente en la presencia de Dios.
+        </p>
+    </div>
+
+    <div class="gift-caja">
+        <h2>Si has llegado hasta aquí…</h2>
+        <h3>¡Tengo un regalo para ti! ♡</h3>
+
+        <p>
+            He preparado para ti una práctica especial que incluye una meditación
+            y un ejercicio para ayudarte a comenzar a vivir en presencia de Dios,
+            aprendiendo a ponerlo primero en tu día a día.
+        </p>
+
+        <p>
+            Mi invitación es que intentes realizar esta práctica todos los días,
+            hasta que empieces a vivir realmente en Su presencia y aprendas a
+            contar con Él en cada momento de tu vida.
+        </p>
+
+        <p class="frase-regalo">
+            No se trata solamente de tener momentos con Dios,
+            sino de aprender a vivir cada momento con Él.
+        </p>
+
+        <a
+            class="boton-regalo"
+            href="https://drive.google.com/uc?export=download&amp;id=1whjeFILowSn3q7qtNLr-RHhneXVcNKVU"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            DESCARGAR MI PRÁCTICA ♡
+        </a>
     </div>
 </section>
 
@@ -582,7 +716,7 @@ let puntos = 0;
 let respondida = false;
 
 function mostrarSeccion(id) {
-    ["portada", "contenido", "juego", "resultado"].forEach(function(seccion) {
+    ["portada", "contenido", "juego", "resultado", "regalo"].forEach(function(seccion) {
         document.getElementById(seccion).style.display =
             seccion === id ? "block" : "none";
     });
@@ -634,6 +768,7 @@ function pintarPregunta() {
 
         boton.appendChild(letra);
         boton.appendChild(texto);
+
         boton.addEventListener("click", function() {
             responder(i);
         });
@@ -718,6 +853,10 @@ function mostrarResultado() {
 
     document.getElementById("titulo-resultado").textContent = titulo;
     document.getElementById("texto-resultado").textContent = texto;
+}
+
+function abrirRegalo() {
+    mostrarSeccion("regalo");
 }
 
 function reiniciarJuego() {
