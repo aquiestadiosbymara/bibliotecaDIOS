@@ -830,7 +830,7 @@ function siguientePregunta() {
 
 function mostrarResultado() {
     mostrarSeccion("resultado");
-
+localStorage.setItem("codigo04Completado", "true");
     document.getElementById("puntuacion-final").textContent =
         puntos + " / " + preguntas.length + " respuestas alineadas";
 
