@@ -852,9 +852,12 @@ function mostrarResultado() {
     document.getElementById("texto-resultado").textContent = texto;
 }
 
+
 function abrirRegalo() {
+    localStorage.setItem("codigo04Completado", "true");
     mostrarSeccion("regalo");
 }
+
 
 function reiniciarJuego() {
     indice = 0;
